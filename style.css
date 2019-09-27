@@ -5,15 +5,15 @@ body {
 
 p {
     /*border: 1px solid green;*/
-    margin: 100px;
+    margin: 150px;
     background-color: skyblue;
-    
+    padding: 30px
 }
 
 h1 {
     padding: 50px;
     margin: 100px;
-    background-color: whitesmoke;
+    background-color: whitesmoke    ;
 }
 
 img {
