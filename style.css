@@ -1,0 +1,23 @@
+body { 
+    font-family: "Comic Sans MS";
+    background-image: url("file:///C:/Users/terry/OneDrive/Pictures/ryan.png")
+}
+
+p {
+    /*border: 1px solid green;*/
+    margin: 100px;
+    background-color: skyblue;
+    
+}
+
+h1 {
+    padding: 50px;
+    margin: 100px;
+    background-color: whitesmoke;
+}
+
+img {
+    width:100% ;
+    height: 100%
+
+}

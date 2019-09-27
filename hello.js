@@ -1,0 +1,1 @@
+console.log('Terry Wong is testing Javascript in HTML')
