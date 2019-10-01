@@ -1,17 +1,66 @@
 body { 
     font-family: "Comic Sans MS";
     /*background-image: url("file:///C:/Users/terry/OneDrive/Pictures/ryan.png")*/
+    
+}
+
+#ryanBackground {
     background-image: url("ryan.png")
 }
-a:hover {
-    color: red;
-    background-color: blue; 
+
+#onionBackground {
+    background-image: url("greenonion.png")
+}
+
+#banner {
+    color: white;
+    text-align: left;
+    padding: 50px;
+    margin: 100px;
+    background-color: black;
+
+}
+
+#barLink {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+#linkBar {
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#introPic {
+    color: white;
+    margin-left : 100px;
+    margin-right : 100px;
+    margin-top : -50px;
+    display: flex;
+}
+
+#leftBlock {
+    width: 100px;
+    margin-right: 50px;
+    
+}
+
+#rightBlock {
+    flex: 1;
+    
+}
+
+.content {
+    padding: 20px;
+    background-color: black;
 }
 
 
 
-p {
-    /*border: 1px solid green;*/
+#ryanParagraph {
     margin: 150px;
     color: white;
     padding: 30px;
@@ -21,11 +70,7 @@ p {
     background-size: 100% 100%;
 }
 
-h1 {
-    padding: 50px;
-    margin: 100px;
-    background-color: lemonchiffon;
-}
+
 
 #specialryan {
     padding: 50px;
