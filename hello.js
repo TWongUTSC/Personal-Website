@@ -1,1 +1,6 @@
-console.log('Terry Wong is testing Javascript in HTML')
+console.log('Hello World')
+
+var name = "Terry Wong";
+console.log(name);
+name = "Terrence Tao";
+console.log(name);
