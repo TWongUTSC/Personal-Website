@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="style.css">
+        <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+        <link rel="stylesheet" href="../style/style.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -33,16 +34,16 @@
             <h1> Welcome to my Website!</h1>
 
               <span id = "linkBar">
-                    <a id = "barLink" href = "ryanPage.html"> Home </a>
-                    <a id = "barLink" href = "greenonions.html"> Green Onions </a>
-                    <a id = "barLink" href = "javascriptapp.html"> Project </a>
+                    <a class = "barLink" href = "index.html"> Home </a>
+                    <a class = "barLink" href = "ryanPage.html"> Ryan Engine </a>
+                    <a class = "barLink" href = "greenonions.html"> Green Onions </a>
+                    <a class = "barLink" href = "javascriptapp.html"> Project </a>
               </span>
                 
            
             <p>
-                This is just me fooling around with HTML and CSS. <br>
-                Here, you'll find stupid links, memes, and tests. <br>
-                I'll make this into a more professional website one day. <br>
+                Welcome to the Ryan Engine.
+
             </p>
         </div>
 
@@ -62,7 +63,7 @@
         
 
 
-        <p id = "ryanParagraph">
+        <p class = "ryanParagraph">
             This is a poem <br>
             Written with line breaks <br>
             This is the end of the poem <br>
@@ -79,8 +80,8 @@
             Header with CSS font size
         </h1>
 
-        <p id = "ryanParagraph" style = "background-color: aquamarine"> This paragraph has a background color </p>
-        <p id = "ryanParagraph" style = "color: rgb(27, 144, 77)"> This text's color is made with RBG</p>
+        <p class = "ryanParagraph" style = "background-color: aquamarine"> This paragraph has a background color </p>
+        <p class = "ryanParagraph" style = "color: rgb(27, 144, 77)"> This text's color is made with RBG</p>
 
         
 
@@ -91,11 +92,11 @@
         
 
 
-        <p id = "ryanParagraph" title = "This is a title for a paragraph. You view this by hovering over the paragraph">
+        <p class = "ryanParagraph" title = "This is a title for a paragraph. You view this by hovering over the paragraph">
             This is a paragraph. Non-headers are written here. <a href="https://www.google.com"> Links can be put into a paragraph too.</a>
         </p>
 
-        <p id = "ryanParagraph" style = "color:red"> This is a red paragraph. No style sheet used. Inline styling.</p>
+        <p class = "ryanParagraph" style = "color:red"> This is a red paragraph. No style sheet used. Inline styling.</p>
 
 
 
@@ -108,7 +109,7 @@
             const thing = () => {console.log('REEEE')}
             thing()
         </script>
-        <script src = "hello.js" ></script>
+        <script src = "../script/app.js" ></script>
 
 
     </body>

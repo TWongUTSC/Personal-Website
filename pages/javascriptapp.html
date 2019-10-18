@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+    <link rel="stylesheet" href="../style/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scallions</title>
+</head>
+
+<body>
+    <div id="banner">
+        <h1> Welcome to my Javascript Project!</h1>
+        
+        <span id="linkBar">
+            <a class = "barLink" href = "index.html"> Home </a>
+            <a class = "barLink" href = "ryanPage.html"> Ryan Engine </a>
+            <a class = "barLink" href = "greenonions.html"> Green Onions </a>
+            <a class = "barLink" href = "javascriptapp.html"> Project </a>
+        </span>
+
+
+        <p>
+            This is me fooling around with Javascript. <br>
+            I want to put my games/apps/widgets here.
+        </p>
+    </div>
+
+    <div id = "content">
+        <span style = "display : inline-block">
+            <p id = "result" >RYAN</p>
+        </span>
+
+        <br>
+        <button class = "test" type = "button" onclick = "engineButton()"> ENGAGE </button>
+
+        <button class = "test" type = "button" onclick = "documentButton()"> Document Write </button>
+
+        <button class = "test" type = "button" onclick = "alertButton()"> Alert </button>
+
+        <button class = "test" type = "button" onclick = "logButton()"> Log </button>
+    </div>
+
+    <div style = "text-align: center">
+        <div id = "mazeContainer">
+            <div id = "maze">
+                <div> <div class = "wall"> </div> <div class = "wall"> </div> <div class = "wall"> </div> <div class = "wall"> </div> </div>
+                <div> <div class = "wall"> </div> <div class = "path"> </div> <div class = "path"> </div> <div class = "wall"> </div> </div>
+                <div> <div class = "wall"> </div> <div class = "path"> </div> <div class = "path"> </div> <div class = "wall"> </div> </div>
+                <div> <div class = "wall"> </div> <div class = "wall"> </div> <div class = "wall"> </div> <div class = "wall"> </div> </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script/app.js"></script>
+    <canvas></canvas>
+
+    <script>
+        var canvas = document.querySelector('canvas'),
+            ctx = canvas.getContext('2d'); //get 2d rendering context
+
+        var resize = function () { //not sure if i need this for my game
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        };
+
+
+
+    </script>
+
+
+</body>
+
+
+
+
+</html>
