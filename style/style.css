@@ -142,14 +142,27 @@ These are for javascript test
     background: red;
     height : 20px;
     width : 20px;
-
+    z-index: -1;
 }
 
 .wall {
     background: orange;
     height : 20px;
     width : 20px;
-
-
+    z-index : -2;
 }
 
+.player {
+    z-index: 1;
+    background: blue;
+    height: 20px;
+    width : 20px;
+    z-index : 3;
+}
+
+.start {
+    background: purple;
+    height: 20px;
+    width : 20px;
+    z-index: -2;
+}

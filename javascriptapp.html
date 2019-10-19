@@ -28,6 +28,17 @@
         </p>
     </div>
 
+    <div style = "text-align: center">
+        <div id = "mazeContainer">
+            <div id = "maze">
+                <div> <div class = "wall"> </div> <div class = "wall"> </div> <div class = "wall"> </div> <div class = "wall"> </div> </div>
+                <div> <div class = "wall"> </div> <div class = "path"> </div> <div class = "path"> </div> <div class = "wall"> </div> </div>
+                <div> <div class = "wall"> </div> <div class = "path"> </div> <div class = "path"> </div> <div class = "wall"> </div> </div>
+                <div> <div class = "wall"> </div> <div class = "start"> </div> <div class = "wall"> </div> <div class = "wall"> </div> </div>
+            </div>
+        </div>
+    </div>
+
     <div id = "content">
         <span style = "display : inline-block">
             <p id = "result" >RYAN</p>
@@ -43,20 +54,17 @@
         <button class = "test" type = "button" onclick = "logButton()"> Log </button>
     </div>
 
-    <div style = "text-align: center">
-        <div id = "mazeContainer">
-            <div id = "maze">
-                <div> <div class = "wall"> </div> <div class = "wall"> </div> <div class = "wall"> </div> <div class = "wall"> </div> </div>
-                <div> <div class = "wall"> </div> <div class = "path"> </div> <div class = "path"> </div> <div class = "wall"> </div> </div>
-                <div> <div class = "wall"> </div> <div class = "path"> </div> <div class = "path"> </div> <div class = "wall"> </div> </div>
-                <div> <div class = "wall"> </div> <div class = "wall"> </div> <div class = "wall"> </div> <div class = "wall"> </div> </div>
-            </div>
-        </div>
-    </div>
 
-    <script src="script/app.js"></script>
-    <canvas></canvas>
 
+    <script src = "script/mazeGame.js"></script>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", function(e) {
+            var maze = new Maze();
+        }, false)
+    </script>
+
+<!--
     <script>
         var canvas = document.querySelector('canvas'),
             ctx = canvas.getContext('2d'); //get 2d rendering context
@@ -65,10 +73,12 @@
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         };
-
-
-
     </script>
+        --->
+
+
+
+
 
 
 </body>

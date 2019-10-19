@@ -85,11 +85,13 @@ console.log(numberArray)
 console.log(numberArray[numberArray.length - 1])
 
 //HTMLDOG event callbacks
+/*
 var handleClick = function (event){
     console.log("hello")
 }
 var par = document.querySelector("#paragraph") //returns element
 par.addEventListener('click', handleClick) //add event properties to element
+*/
 
 //HTMLDOG JSON
 //string can be gotten from json object
