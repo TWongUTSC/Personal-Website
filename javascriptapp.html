@@ -11,70 +11,818 @@
 </head>
 
 <body>
-    <div id="banner">
-        <h1> Welcome to my Javascript Project!</h1>
-        
-        <span id="linkBar">
-            <a class = "barLink" href = "index.html"> Home </a>
-            <a class = "barLink" href = "ryanPage.html"> Ryan Engine </a>
-            <a class = "barLink" href = "greenonions.html"> Green Onions </a>
-            <a class = "barLink" href = "javascriptapp.html"> Project </a>
+<div id="banner">
+    <h1 id = "title"> Welcome to my Javascript Project!</h1>
+
+    <span id="linkBar">
+            <a class = "barLink" href = "index.html"> <strong>Home</strong> </a>
+            <a class = "barLink" href = "ryanPage.html"> <strong>Ryan Engine</strong> </a>
+            <a class = "barLink" href = "greenonions.html"> <strong>Green Onions</strong> </a>
+            <a class = "barLink currentLink"  id = "lastLink" href = "javascriptapp.html"> <strong>Project</strong> </a>
         </span>
 
 
-        <p>
-            This is me fooling around with Javascript. <br>
-            I want to put my games/apps/widgets here.
-        </p>
-    </div>
+    <p>
+        This is me fooling around with Javascript. <br>
+        I want to put my games/apps/widgets here.
+    </p>
+</div>
 
-    <div style = "text-align: center">
+<div id = "contentBlock">
+    <!-- This div is for game instructions -->
+    <div id = "mazeInstructions">
+        <h2> Maze Game </h2>
+        <p> Use arrow keys to move the blue cube around the orange area.</p>
+        <p> Walls are red</p>
+        <p> Win on green</p>
+        <p> Note: This is a basic functional implementation. This will eventually become a blind maze.</p>
+    </div>
+    <!-- This div is for the maze game -->
+    <div id = "mazeBlock">
         <div id = "mazeContainer">
             <div id = "maze">
-                <div> <div class = "wall"> </div> <div class = "wall"> </div> <div class = "wall"> </div> <div class = "wall"> </div> </div>
-                <div> <div class = "wall"> </div> <div class = "path"> </div> <div class = "path"> </div> <div class = "wall"> </div> </div>
-                <div> <div class = "wall"> </div> <div class = "path"> </div> <div class = "path"> </div> <div class = "wall"> </div> </div>
-                <div> <div class = "wall"> </div> <div class = "start"> </div> <div class = "wall"> </div> <div class = "wall"> </div> </div>
+                <div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "win"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "border"> </div>
+
+                </div>
+                <div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "border"> </div>
+
+                </div>
+                <div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "border"> </div>
+
+                </div>
+                <div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "border"> </div>
+
+                </div>
+                <div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "border"> </div>
+
+                </div>
+                <div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "border"> </div>
+
+                </div>
+                <div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "border"> </div>
+
+                </div>
+                <div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "border"> </div>
+
+                </div>
+                <div>
+                    <div class = "wall"> </div>
+                    <div class = "wall"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "wall"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "wall"> </div>
+                    <div class = "wall"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "border"> </div>
+
+                </div>
+                <div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "border"> </div>
+
+                </div>
+                <div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "border"> </div>
+
+                </div>
+                <div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "border"> </div>
+
+                </div>
+                <div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "border"> </div>
+
+                </div>
+                <div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "border"> </div>
+
+                </div>
+                <div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "border"> </div>
+
+                </div>
+                <div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "border"> </div>
+
+                </div>
+                <div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "border"> </div>
+
+                </div>
+                <div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "path"> </div>
+                    <div class = "border"> </div>
+
+                </div>
+                <div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "border"> </div>
+                    <div class = "start"> </div>
+                    <div class = "border"> </div>
+
+                </div>
             </div>
         </div>
     </div>
 
-    <div id = "content">
-        <span style = "display : inline-block">
-            <p id = "result" >RYAN</p>
-        </span>
-
-        <br>
-        <button class = "test" type = "button" onclick = "engineButton()"> ENGAGE </button>
-
-        <button class = "test" type = "button" onclick = "documentButton()"> Document Write </button>
-
-        <button class = "test" type = "button" onclick = "alertButton()"> Alert </button>
-
-        <button class = "test" type = "button" onclick = "logButton()"> Log </button>
-    </div>
 
 
 
-    <script src = "script/mazeGame.js"></script>
+</div>
 
-    <script>
-        window.addEventListener("DOMContentLoaded", function(e) {
-            var maze = new Maze();
-        }, false)
-    </script>
 
-<!--
-    <script>
-        var canvas = document.querySelector('canvas'),
-            ctx = canvas.getContext('2d'); //get 2d rendering context
 
-        var resize = function () { //not sure if i need this for my game
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        };
-    </script>
-        --->
+
+
+
+
+<script src = "script/mazeGame.js"></script>
+
+<script>
+    window.addEventListener("DOMContentLoaded", function(e) {
+        var maze = new Maze();
+    }, false)
+</script>
 
 
 

@@ -1,7 +1,7 @@
 body { 
     font-family: "Rubik";
+    margin: 50px;
     /*background-image: url("file:///C:/Users/terry/OneDrive/Pictures/ryan.png")*/
-    
 }
 
 #ryanBackground {
@@ -14,19 +14,29 @@ body {
 
 #banner {
     color: white;
-    text-align: left;
+    text-align: center;
     padding: 50px;
-    margin: 100px;
+
     background-color: black;
 
 }
 
 .barLink {
+    border-radius: 25px;
     background-color: white;
     color: black;
     padding: 20px;
     margin-right: 20px;
+    text-decoration: none;
+    font-weight:bold;
+}
 
+.currentLink {
+    background-color: orange;
+}
+
+#lastLink {
+    margin-right: 0px;
 }
 
 #linkBar {
@@ -138,27 +148,35 @@ These are for javascript test
     display: flex;
 }
 
-.path {
-    background: red;
+.win {
+    background: green;
     height : 20px;
     width : 20px;
     z-index: -1;
 }
 
 .wall {
+    background: red;
+    height : 20px;
+    width : 20px;
+    z-index: -1;
+}
+
+.path {
     background: orange;
     height : 20px;
     width : 20px;
     z-index : -2;
 }
 
-.player {
-    z-index: 1;
-    background: blue;
-    height: 20px;
+.border {
+    background: black;
+    height : 20px;
     width : 20px;
-    z-index : 3;
+    z-index : -2;
 }
+
+
 
 .start {
     background: purple;
@@ -166,3 +184,63 @@ These are for javascript test
     width : 20px;
     z-index: -2;
 }
+
+.player {
+
+    background: blue;
+    height: 20px;
+    width : 20px;
+    z-index : 3;
+
+}
+
+#title {
+    margin-top : 0px;
+}
+
+#mazeBlock {
+    text-align: center;
+    margin-bottom: -4px;
+    /*
+    This is needed for proper alignment
+     */
+}
+
+#contentBlock {
+    display: flex;
+}
+
+#mazeInstructions {
+    color: white;
+    background-color: black;
+    padding-left : 50px;
+    padding-right: 50px;
+    flex: 1;
+
+}
+
+#mazeInstructions h2 {
+    padding: 0px;
+    margin: 0px;
+}
+
+#banner p {
+    margin-bottom : 0px;
+}
+
+
+/*
+Color 1
+    maze border
+
+Color 2
+    buttons
+    maze background
+
+Color 3
+    font
+
+Color 4
+    background
+
+ */

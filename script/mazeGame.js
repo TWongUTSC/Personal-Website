@@ -18,21 +18,53 @@ Maze.prototype.handleButton = function (e) {
         console.log("Down")
         movePosition.x++;
     }
-    /*
-    this.mazeArray[this.playerPosition].classList.remove("player");
-    this.mazeArray[this.playerPosition].classList.add("path");
 
-    this.mazeArray[movePosition].classList.add("player");
-    this.mazeArray[movePosition].classList.remove("path");
+    if (this.validateMove(movePosition)) {
+        this.mazeArray[this.playerPosition.x][this.playerPosition.y].classList.remove("player");
+        this.mazeArray[movePosition.x][movePosition.y].classList.add("player");
+        this.playerPosition = movePosition;
+        console.log(this.playerPosition);
+    } else {
+        console.log("invalid move")
+    }
+
+    if (this.mazeArray[this.playerPosition.x][this.playerPosition.y].classList.contains("win")) {
+        document.write("YOU WIN NERD")
+    }
+
+
+
+}
+
+Maze.prototype.validateMove = function (movePosition) {
+    /*
+    Validate for boundary
+     */
+    if (movePosition.x === -1 || movePosition.x === this.maze.children.length ) {
+        return false;
+    } else if (movePosition.y === -1 || movePosition.y === this.maze.children[0].children.length) {
+        return false;
+    }
+
+    if (this.mazeArray[movePosition.x][movePosition.y].className === "wall") {
+        return false;
+    }
+
+
+
+    /*
+    Validate for border
      */
 
-    this.mazeArray[this.playerPosition.x][this.playerPosition.y].classList.remove("player");
-    this.mazeArray[movePosition.x][movePosition.y].classList.add("player");
-    this.playerPosition = movePosition;
-    console.log(this.playerPosition);
+    if (this.mazeArray[movePosition.x][movePosition.y].className === "border") {
+        return false
+    }
 
 
-
+    /*
+    OK
+     */
+    return true;
 }
 
 function Maze() {
@@ -58,19 +90,6 @@ function Maze() {
             }
         }
     }
-    //console.log(this.mazeArray[this.playerPosition]);
-
-    /*
-    for (var i = 0; i < this.maze.children.length; i++) {
-        for (var j = 0; j < this.maze.children[i].children.length; j++) {
-            var position = new Position(i,j);
-            console.log(this.mazeArray[position])
-        }
-    }
-
-     */
-
-    console.log("Bye")
     this.keyPressHandler = this.handleButton.bind(this);
     document.addEventListener('keydown', this.keyPressHandler)
 }
@@ -83,7 +102,7 @@ need main maze function
     add event for keydown
         method for checking key press
             method for trying move
-                bump into wall
+                bump into path
                 move
                     win?
                         stop game

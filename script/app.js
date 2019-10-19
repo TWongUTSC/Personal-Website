@@ -218,7 +218,7 @@ Mazing.prototype.tryMoveHero = function(pos) {
         }
         return;
     }
-    if(nextStep.match(/wall/)) {
+    if(nextStep.match(/path/)) {
         return;
     }
     if(nextStep.match(/exit/)) {
@@ -230,7 +230,7 @@ Mazing.prototype.tryMoveHero = function(pos) {
         }
     }
 
-    // move hero one step after no wall
+    // move hero one step after no path
     this.maze[this.heroPos].classList.remove("hero"); //remove old hero
     this.maze[pos].classList.add("hero"); //place new hero
     this.heroPos = pos; //change pos
