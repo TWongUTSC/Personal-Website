@@ -3,6 +3,32 @@ function Position (x, y) {
     this.y = y;
 }
 
+Maze.prototype.reveal = function () {
+    var x = this.playerPosition.x;
+    var y = this.playerPosition.y;
+
+    if (this.mazeArray[x + 1][y].classList.contains("wall")) {
+        this.mazeArray[x + 1][y].classList.add("revealedWall")
+    }
+
+    if (this.mazeArray[x - 1][y].classList.contains("wall")) {
+        this.mazeArray[x - 1][y].classList.add("revealedWall")
+    }
+
+    if (this.mazeArray[x][y + 1].classList.contains("wall")) {
+        this.mazeArray[x][y + 1].classList.add("revealedWall")
+    }
+
+    if (this.mazeArray[x][y - 1].classList.contains("wall")) {
+        this.mazeArray[x][y - 1].classList.add("revealedWall")
+    }
+
+
+
+
+
+}
+
 Maze.prototype.handleButton = function (e) {
     var movePosition = new Position(this.playerPosition.x, this.playerPosition.y)
     if (e.key == "ArrowLeft") {
@@ -17,6 +43,8 @@ Maze.prototype.handleButton = function (e) {
     } else if (e.key == "ArrowDown") {
         console.log("Down")
         movePosition.x++;
+    } else if (e.key == " "){
+        this.reveal();
     }
 
     if (this.validateMove(movePosition)) {
@@ -46,7 +74,7 @@ Maze.prototype.validateMove = function (movePosition) {
         return false;
     }
 
-    if (this.mazeArray[movePosition.x][movePosition.y].className === "wall") {
+    if (this.mazeArray[movePosition.x][movePosition.y].classList.contains("wall")) {
         return false;
     }
 
