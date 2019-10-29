@@ -14,14 +14,15 @@ body {
 }
 
 #banner {
-    color: white;
-    text-align: center;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 50px;
-    padding-bottom: 40px;
-    background-color: black;
+    color: black;
+    text-align: left;
+    padding: 50px;
+    padding-bottom: 20px;
+    background-color: white;
+}
 
+#projectBanner {
+    padding-bottom: 0px;
 }
 
 .barLink {
@@ -225,25 +226,24 @@ These are for javascript test
 
 #contentBlock {
     display: flex;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 #mazeInstructions {
+    padding: 50px;
     color: white;
     background-color: black;
-    padding-left : 50px;
-    padding-right: 50px;
+
     flex: 1;
-
 }
 
-#mazeInstructions h2 {
-    padding: 0px;
-    margin: 0px;
-}
 
 #banner p {
     margin-bottom : 0px;
 }
+
+
 
 
 /*
