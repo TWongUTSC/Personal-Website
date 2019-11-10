@@ -47,35 +47,38 @@ Maze.prototype.unReveal = function (position) {
     var x = position.x;
     var y = position.y;
 
-    if (this.mazeArray[x + 1][y].classList.contains("revealedWall")) {
-        this.mazeArray[x + 1][y].classList.remove("revealedWall")
-    }
-    if (this.mazeArray[x + 1][y + 1].classList.contains("revealedWall")) {
-        this.mazeArray[x + 1][y + 1].classList.remove("revealedWall")
-    }
 
-
+    //UP
     if (this.mazeArray[x - 1][y].classList.contains("revealedWall")) {
         this.mazeArray[x - 1][y].classList.remove("revealedWall")
     }
-    if (this.mazeArray[x - 1][y - 1].classList.contains("revealedWall")) {
-        this.mazeArray[x - 1][y - 1].classList.remove("revealedWall")
-    }
-
-
-    if (this.mazeArray[x][y + 1].classList.contains("revealedWall")) {
-        this.mazeArray[x][y + 1].classList.remove("revealedWall")
-    }
+    //UP RIGHT
     if (this.mazeArray[x - 1][y + 1].classList.contains("revealedWall")) {
         this.mazeArray[x - 1][y + 1].classList.remove("revealedWall")
     }
-
-
+    //RIGHT
+    if (this.mazeArray[x][y + 1].classList.contains("revealedWall")) {
+        this.mazeArray[x][y + 1].classList.remove("revealedWall")
+    }
+    //DOWN RIGHT
+    if (this.mazeArray[x + 1][y + 1].classList.contains("revealedWall")) {
+        this.mazeArray[x + 1][y + 1].classList.remove("revealedWall")
+    }
+    //DOWN
+    if (this.mazeArray[x + 1][y].classList.contains("revealedWall")) {
+        this.mazeArray[x + 1][y].classList.remove("revealedWall")
+    }
+    //DOWN LEFT
+    if (this.mazeArray[x + 1][y - 1].classList.contains("revealedWall")) {
+        this.mazeArray[x + 1][y - 1].classList.remove("revealedWall")
+    }
+    //LEFT
     if (this.mazeArray[x][y - 1].classList.contains("revealedWall")) {
         this.mazeArray[x][y - 1].classList.remove("revealedWall")
     }
-    if (this.mazeArray[x + 1][y - 1].classList.contains("revealedWall")) {
-        this.mazeArray[x + 1][y - 1].classList.remove("revealedWall")
+    //UP LEFT
+    if (this.mazeArray[x - 1][y - 1].classList.contains("revealedWall")) {
+        this.mazeArray[x - 1][y - 1].classList.remove("revealedWall")
     }
 }
 
@@ -94,7 +97,6 @@ Maze.prototype.handleButton = function (e) {
         console.log("Down")
         movePosition.x++;
     }
-
 
     if (this.validateMove(movePosition)) {
         //delete revealedWall class from surrounding
@@ -156,9 +158,7 @@ function Maze() {
     for (var i = 0 ; i < this.maze.children.length ; i++) {
         this.mazeArray[i] = new Array(this.maze.children[i].children.length);
     }
-
     this.playerPosition = {};
-
 
     //Fill array
     for (var i = 0; i < this.maze.children.length; i++) {

@@ -27,7 +27,6 @@ body {
 
 .barLink {
     border-radius: 25px;
-    background-color: white;
     color: black;
     padding: 20px;
     margin-right: 20px;
@@ -36,19 +35,24 @@ body {
 }
 
 .currentLink {
-    background-color: orange;
+    background: orange;
 }
 
 #lastLink {
     margin-right: 0px;
 }
 
-#linkBar {
-    display: inline-block;
-    margin-bottom: 20px;
+#navBar {
+    display: flex;
+    margin-bottom: 10px;
     margin-top: 20px;
 }
-
+#navBar a {
+    transition: background 0.2s ease-in-out 0s;
+}
+#navBar a:hover {
+    background: orange;
+}
 #introPic {
     color: white;
     margin-left : 100px;
@@ -68,10 +72,7 @@ body {
     
 }
 
-.content {
-    padding: 20px;
-    background-color: black;
-}
+
 
 
 
@@ -115,14 +116,6 @@ img {
 These are for javascript test
  */
 
-#content {
-    color: white;
-    background-color: black;
-    margin-left: 100px;
-    margin-right: 100px;
-    margin-bottom: 100px;
-    padding: 50px;
-}
 
 #result {
     color: black;
@@ -172,7 +165,7 @@ These are for javascript test
 
 .revealedWall {
     background: orange;
-    border: 1px solid orange;
+    border: 1px solid grey;
 }
 
 .path {
@@ -224,11 +217,18 @@ These are for javascript test
      */
 }
 
-#contentBlock {
+.contentBlock {
     display: flex;
     margin-left: 50px;
     margin-right: 50px;
 }
+
+.content {
+    padding: 20px;
+    background-color: black;
+}
+
+
 
 #mazeInstructions {
     padding: 50px;
@@ -262,3 +262,15 @@ circular picture for home page
 on css selector
 cursor:pointer
  */
+
+/*
+Maze Features
+- portals
+- multuple levels
+- change player color
+- one way walls
+- reveal walls with input
+- shift 90 degrees every 10 seconds
+*/
+
+

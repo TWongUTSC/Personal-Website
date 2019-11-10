@@ -15,11 +15,11 @@
 
     <h1 id = "title" >  Welcome to my Javascript Project!</h1>
 
-    <span id="linkBar">
-            <a class = "barLink" href = "index.html"> Home </a>
-            <a class = "barLink" href = "resume.html"> Resume </a>
-            <a class = "barLink currentLink"  id = "lastLink" href = "javascriptapp.html"> Project </a>
-        </span>
+    <nav id = "navBar">
+        <a class = "barLink" href = "index.html"> Home </a>
+        <a class = "barLink" href = "resume.html"> Resume </a>
+        <a class = "barLink currentLink"  id = "lastLink" href = "javascriptapp.html"> Project </a>
+    </nav>
 
 
     <p>
@@ -29,7 +29,7 @@
 
 </div>
 
-<div id = "contentBlock">
+<div class = "contentBlock">
     <!-- This div is for game instructions -->
     <div id = "mazeInstructions">
         <div> <!-- TODO ALIGN THIS CENTER VERTICAL -->
@@ -38,15 +38,11 @@
         <h2> Blind Maze </h2>
 
         <ul>
-            <li> Find your way to the blue square </li>
+            <li> Find your way to the green square </li>
             <li> Use arrow keys to move </li>
             <li> Reveal the walls as you move around! </li>
         </ul>
         </div>
-
-
-
-
 
     </div>
     <!-- This div is for the maze game -->
@@ -91,7 +87,7 @@
                     <div class = "border"> </div>
                     <div class = "border"> </div>
                     <div class = "border"> </div>
-
+                    <div class = "border"> </div>
                 </div> <!-- Borders here -->
                 <div>
                     <div class = "border"> </div>
@@ -843,16 +839,6 @@
 
 
 
-
-<!--
-Maze Features
-    - portals
-    - multuple levels
-    - change player color
-    - one way walls
-    - reveal walls with input
-    - shift 90 degrees every 10 seconds
--->
 
 
 
