@@ -117,8 +117,9 @@ Maze.prototype.handleButton = function (e) {
 
     //Check win
     if (this.mazeArray[this.playerPosition.x][this.playerPosition.y].classList.contains("win")) {
-        alert("You Win! Thanks for playing!")
-        this.movePlayer(this.startPosition)
+        alert("You Win! Thanks for playing!");
+        this.unReveal(this.playerPosition);
+        this.movePlayer(this.startPosition);
     }
 }
 
