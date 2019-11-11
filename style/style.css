@@ -1,8 +1,26 @@
 body { 
     font-family: "Rubik";
-
     margin: 50px;
-    /*background-image: url("file:///C:/Users/terry/OneDrive/Pictures/ryan.png")*/
+
+    background-image: url("../images/tree.jpg");
+
+
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    opacity: 1;
+    animation: fadeIn 2s ease;
+
+
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
 
 #ryanBackground {
@@ -14,11 +32,11 @@ body {
 }
 
 #banner {
-    color: black;
+    color: white;
     text-align: left;
     padding: 50px;
     padding-bottom: 20px;
-    background-color: white;
+
 }
 
 #projectBanner {
@@ -27,7 +45,7 @@ body {
 
 .barLink {
     border-radius: 25px;
-    color: black;
+    color: white;
     padding: 20px;
     margin-right: 20px;
     text-decoration: none;
@@ -235,8 +253,8 @@ These are for javascript test
     padding-left: 50px;
     color: white;
     background-color: black;
-
     flex: 1;
+    border-radius: 0px 100px 100px 0px;
 }
 
 
@@ -253,6 +271,7 @@ These are for javascript test
     font-weight:bold;
     outline: none;
     border:1px solid black;
+
     transition: background 0.2s ease-in-out 0s;
     margin-bottom: 20px;
 }

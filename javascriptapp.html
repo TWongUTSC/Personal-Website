@@ -12,7 +12,6 @@
 
 <body style = "overflow : hidden">
 <div id="banner">
-
     <h1 id = "title" >  Welcome to my Javascript Project!</h1>
 
     <nav id = "navBar">
@@ -21,35 +20,14 @@
         <a class = "barLink currentLink"  id = "lastLink" href = "javascriptapp.html"> Project </a>
     </nav>
 
-
     <p>
         This is me fooling around with Javascript. <br>
         I want to put my games/apps/widgets here.
     </p>
-
 </div>
 
 <div class = "contentBlock">
-    <!-- This div is for game instructions -->
-    <div id = "mazeInstructions">
-        <div>
-        <h2> Blind Maze </h2>
 
-        <ul>
-            <li> Find your way to the green square </li>
-            <li> Use arrow keys to move </li>
-            <li> Reveal the walls as you move around! </li>
-        </ul>
-        </div>
-
-
-        <h3> Need help? </h3>
-        <Button id = "revealButton" class = "gameButton">Reveal Walls</Button>
-        <br>
-        <Button id = "hideButton" class = "gameButton pressed">Hide Walls</Button>
-
-    </div>
-    <!-- This div is for the maze game -->
     <div id = "mazeBlock">
         <div id = "mazeContainer">
             <div id = "maze">
@@ -836,6 +814,20 @@
             </div>
         </div>
     </div>
+    <div id = "mazeInstructions">
+        <div>
+            <h2> Blind Maze </h2>
+            <ul>
+                <li> Find your way to the green square </li>
+                <li> Use arrow keys to move </li>
+                <li> Reveal the walls as you move around! </li>
+            </ul>
+        </div>
+        <h3> Need help? </h3>
+        <Button id = "revealButton" class = "gameButton">Reveal Walls</Button>
+        <br>
+        <Button id = "hideButton" class = "gameButton pressed">Hide Walls</Button>
+    </div>
 </div>
 
 <script src = "script/mazeGame.js"></script>
@@ -847,15 +839,5 @@
     //Disable scrolling
         document.body.style.zoom = 1.0;
 </script>
-
-
-
-
-
-
 </body>
-
-
-
-
 </html>
