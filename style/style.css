@@ -165,7 +165,7 @@ These are for javascript test
 
 .revealedWall {
     background: orange;
-    border: 1px solid grey;
+    border: 1px solid orange;
 }
 
 .path {
@@ -231,7 +231,8 @@ These are for javascript test
 
 
 #mazeInstructions {
-    padding: 50px;
+    padding: 35px;
+    padding-left: 50px;
     color: white;
     background-color: black;
 
@@ -243,9 +244,24 @@ These are for javascript test
     margin-bottom : 0px;
 }
 
+.gameButton {
+    border-radius: 25px;
+    color: black;
+    padding: 20px;
+    margin-right: 20px;
+    text-decoration: none;
+    font-weight:bold;
+    outline: none;
+    border:1px solid black;
+    transition: background 0.2s ease-in-out 0s;
+    margin-bottom: 20px;
+}
 
+.gameButton:hover {
+    background: orange;
+}
 
-
+.pressed { background: orange}
 /*
 HTML TAGS
 
@@ -271,6 +287,7 @@ Maze Features
 - one way walls
 - reveal walls with input
 - shift 90 degrees every 10 seconds
+- sound effects for walking or running into wall
 */
 
 

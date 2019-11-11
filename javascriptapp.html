@@ -10,7 +10,7 @@
     <title>Scallions</title>
 </head>
 
-<body>
+<body style = "overflow : hidden">
 <div id="banner">
 
     <h1 id = "title" >  Welcome to my Javascript Project!</h1>
@@ -32,9 +32,7 @@
 <div class = "contentBlock">
     <!-- This div is for game instructions -->
     <div id = "mazeInstructions">
-        <div> <!-- TODO ALIGN THIS CENTER VERTICAL -->
-
-
+        <div>
         <h2> Blind Maze </h2>
 
         <ul>
@@ -43,6 +41,12 @@
             <li> Reveal the walls as you move around! </li>
         </ul>
         </div>
+
+
+        <h3> Need help? </h3>
+        <Button id = "revealButton" class = "gameButton">Reveal Walls</Button>
+        <br>
+        <Button id = "hideButton" class = "gameButton pressed">Hide Walls</Button>
 
     </div>
     <!-- This div is for the maze game -->
@@ -834,23 +838,14 @@
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
 <script src = "script/mazeGame.js"></script>
-
 <script>
+    //Load Game
     window.addEventListener("DOMContentLoaded", function(e) {
         var maze = new Maze();
     }, false)
+    //Disable scrolling
+        document.body.style.zoom = 1.0;
 </script>
 
 
