@@ -2,14 +2,14 @@ body {
     font-family: "Rubik";
     margin: 50px;
 
-    background-image: url("../images/tree.jpg");
+    background-image: url("../images/tree.png");
 
 
     background-size: cover;
     background-repeat: no-repeat;
 
     opacity: 1;
-    animation: fadeIn 2s ease;
+    animation: fadeIn 0.5s ease;
 
 
 }
@@ -150,139 +150,7 @@ These are for javascript test
 }
 
 
-#mazeContainer {
-    display: inline-block;
-    position: relative;
-    background: black;
-    z-index: -10;
-}
 
-#maze { <!--   -->
-    background-color: green;
-}
-
-#maze div {
-    display: flex;
-}
-
-.win {
-    background: green;
-    height : 20px;
-    width : 20px;
-    z-index: -1;
-    border: 1px solid grey;
-}
-
-.wall {
-
-    height : 20px;
-    width : 20px;
-    z-index: -1;
-    border: 1px solid grey;
-
-
-
-}
-
-.revealedWall {
-    opacity: 90%;
-    background: darkorange;
-    border: 1px solid darkorange;
-}
-
-.path {
-
-    height : 20px;
-    width : 20px;
-    z-index : -2;
-    border: 1px solid grey;
-
-}
-
-.border {
-    background: black;
-    height : 20px;
-    width : 20px;
-    z-index : -2;
-    border: 1px solid black;
-}
-
-
-
-.start {
-    background: purple;
-    height: 20px;
-    width : 20px;
-    z-index: -2;
-    border: 1px solid grey;
-}
-
-.player {
-
-    background: blue;
-    height: 20px;
-    width : 20px;
-    z-index : 3;
-    border: 1px solid grey;
-
-}
-
-#title {
-    margin-top : 0px;
-}
-
-#mazeBlock {
-    text-align: center;
-    margin-bottom: -4px;
-}
-
-.contentBlock {
-    display: flex;
-    margin-left: 50px;
-    margin-right: 50px;
-}
-
-.content {
-    padding: 20px;
-    background-color: black;
-}
-
-
-
-#mazeInstructions {
-    padding: 35px;
-    padding-left: 50px;
-    color: white;
-    background-color: black;
-    flex: 1;
-    border-radius: 0px 100px 100px 0px;
-}
-
-
-#banner p {
-    margin-bottom : 0px;
-}
-
-.gameButton {
-    border-radius: 25px;
-    background: grey;
-    color: white;
-    padding: 20px;
-    margin-right: 20px;
-    text-decoration: none;
-    font-weight:bold;
-    outline: none;
-    border:1px solid black;
-
-    transition: background 0.2s ease-in-out 0s;
-    margin-bottom: 20px;
-}
-
-.gameButton:hover {
-    background: darkorange;
-}
-
-.pressed { background: darkorange}
 /*
 HTML TAGS
 
@@ -310,5 +178,18 @@ Maze Features
 - shift 90 degrees every 10 seconds
 - sound effects for walking or running into wall
 */
+
+/*  Redesign and Refactoring
+
+    - clean up and organize css pages
+    - write functions that convert an array of 0 and 1 that alters the
+      divs in the mazegame div
+        - use this to easily change characters
+    - choose your character color options
+        - use rgb?
+        - use hex?
+        - colors of walls and everything else?
+
+ */
 
 
