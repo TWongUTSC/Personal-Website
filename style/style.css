@@ -2,7 +2,7 @@ body {
     font-family: "Rubik";
     margin: 50px;
 
-    background-image: url("../images/tree.png");
+    background-image: url("../images/view-cropped.jpg");
 
 
     background-size: cover;
@@ -23,13 +23,6 @@ body {
     }
 }
 
-#ryanBackground {
-    background-image: url("../images/ryan.png")
-}
-
-#onionBackground {
-    background-image: url("../images/greenonion.png")
-}
 
 #banner {
     color: white;
@@ -39,17 +32,66 @@ body {
 
 }
 
-#projectBanner {
-    padding-bottom: 0px;
+/*
+For navigation bar
+*/
+
+
+nav h1 {
+    font-size: 3em;
+    display: flex;
+    margin-top: 0px;
+    margin-right: auto;
 }
 
-.barLink {
+.links {
+    padding-left: 0px;
+    margin-top: 0px;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+nav {
+    display: flex;
+
+}
+
+.icons {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.nav-icon {
+    height: 50px;
+    width: 50px;
+    margin-left: 20px;
+    color: white;
+
+    transition: color 0.2s ease-in-out 0s;
+
+}
+
+  
+.nav-icon:hover {
+    color: darkorange;
+}
+
+.links a {
+    transition: background 0.2s ease-in-out 0s;
+
     border-radius: 25px;
     color: white;
     padding: 20px;
     margin-right: 20px;
     text-decoration: none;
     font-weight:bold;
+}
+.links a:hover {
+    background: darkorange;
 }
 
 .currentLink {
@@ -60,94 +102,7 @@ body {
     margin-right: 0px;
 }
 
-#navBar {
-    display: flex;
-    margin-bottom: 10px;
-    margin-top: 20px;
-}
-#navBar a {
-    transition: background 0.2s ease-in-out 0s;
-}
-#navBar a:hover {
-    background: darkorange;
-}
-#introPic {
-    color: white;
-    margin-left : 100px;
-    margin-right : 100px;
-    margin-top : -50px;
-    display: flex;
-}
 
-#leftBlock {
-    width: 100px;
-    margin-right: 50px;
-    
-}
-
-#rightBlock {
-    flex: 1;
-    
-}
-
-
-
-
-
-.ryanParagraph {
-    margin: 150px;
-    color: white;
-    padding: 30px;
-    background-image: url("../images/nayr.png");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-}
-
-
-
-#specialryan {
-    padding: 50px;
-    margin: 100px;
-    background-image: url("../images/pink ryan.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
-#ryanContent {
-    font-family: "Monospace";
-    border-style: solid;
-    border-color: white;
-    background-color: black;
-    color: white;
-    margin-left: 100px;
-    margin-right: 100px;
-}
-
-
-img {
-    width:100% ;
-    height: 100%
-}
-
-/*
-These are for javascript test
- */
-
-
-#result {
-    color: black;
-    background-color: white;
-    padding:20px;
-}
-
-.test {
-    margin-right : 20px;
-}
-
-#paragraph {
-    background-color: aqua;
-}
 
 
 

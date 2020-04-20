@@ -3,8 +3,11 @@
     <head>
         <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
         <link rel="stylesheet" href="style/style.css">
-        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">-->
-
+        <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+      rel="stylesheet"
+    />
+        
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,13 +16,33 @@
     <body>
 
     <div id="banner">
-        <h1 id = "title"> Welcome to my Website!</h1>
-
-        <nav id = "navBar">
-            <a class = "barLink currentLink" href = "index.html"> Home </a>
-            <a class = "barLink" href = "pages/resume.html"> Resume </a>
-            <a class = "barLink"  id = "lastLink" href = "pages/javascriptapp.html"> Project </a>
+        <nav >
+            <h1> Projects </h1>
+        
+            <ul class = "icons">
+                <li class = "icon">
+                    <a href = "https://github.com/TerryCLAWong">
+                        <i class="nav-icon fab fa-github-square fa-2x"></i>
+                    </a>
+                </li>
+                <li class = "icon"> 
+                    <a href = "https://linkedin.com/in/terry-wong-66692417a">
+                        <i class="nav-icon fab fa-linkedin fa-2x"></i>
+                    </a>
+                </li>
+                    
+            </ul> 
         </nav>
+
+    
+        <nav>
+            <ul class = "links">
+                <li> <a class = "currentLink" href = "index.html"> Home </a></li>
+                <li> <a href = "pages/resume.html"> Resume </a></li>
+                <li> <a id = "lastLink" href = "pages/javascriptapp.html"> Project </a></li>
+            </ul> 
+        </nav>
+        
 
 
         <p>
