@@ -32,19 +32,41 @@ body {
 
 }
 
+
+
+/* 
+For profile logo 
+*/
+.profile {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+  
+.profile img {
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
 /*
 For navigation bar
 */
 
 
-nav h1 {
+nav h1 { /* Title */
     font-size: 3em;
     display: flex;
     margin-top: 0px;
     margin-right: auto;
 }
 
-.links {
+nav {
+    display: flex;
+
+}
+
+.nav-links { 
     padding-left: 0px;
     margin-top: 0px;
     list-style-type: none;
@@ -53,19 +75,42 @@ nav h1 {
     font-size: 1.2rem;
 }
 
-nav {
-    display: flex;
+.nav-links a {
+    transition: background 0.2s ease-in-out 0s;
 
+    border-radius: 25px;
+    color: white;
+    padding: 20px;
+    margin-right: 20px;
+    text-decoration: none;
+    font-weight:bold;
+}
+.nav-links a:hover {
+    background: darkorange;
 }
 
-.icons {
+.currentLink {
+    background: darkorange;
+}
+
+#lastLink {
+    margin-right: 0px;
+}
+
+/*
+Contact links
+*/
+
+.contact-icons {
+    padding-left: 6px;
     list-style-type: none;
     display: flex;
     align-items: center;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
+    margin-top: 0px;
 }
 
-.nav-icon {
+.icon {
     height: 50px;
     width: 50px;
     margin-left: 20px;
@@ -76,30 +121,8 @@ nav {
 }
 
   
-.nav-icon:hover {
+.icon:hover {
     color: darkorange;
-}
-
-.links a {
-    transition: background 0.2s ease-in-out 0s;
-
-    border-radius: 25px;
-    color: white;
-    padding: 20px;
-    margin-right: 20px;
-    text-decoration: none;
-    font-weight:bold;
-}
-.links a:hover {
-    background: darkorange;
-}
-
-.currentLink {
-    background: darkorange;
-}
-
-#lastLink {
-    margin-right: 0px;
 }
 
 
