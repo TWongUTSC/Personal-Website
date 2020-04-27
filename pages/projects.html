@@ -1,64 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang = "en">
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+        <link rel="stylesheet" href="../style/style.css">
+        <link rel="stylesheet" href="../style/mazeGame.css">
+        <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+        rel="stylesheet"
+        />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Projects</title>
+    </head>
 
-<head>
-    <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
-    <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" href="../style/mazeGame.css">
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
-      rel="stylesheet"
-    />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Projects</title>
-</head>
+<body>
 
-<body style = "overflow : hidden">
-
-
-<div id="banner">
-    
-    <nav >
-        <h1> Projects </h1>
-
-        <ul class = "contact-icons">
-            <div class="profile">
-                <img
-                  width="50"
-                  height="50"
-                  src="../images/profile.jpg"
-                />
-                Hey, I'm Terry!
-            </div>
-            <li>
-                <a class = "link" href = "https://github.com/TerryCLAWong">
-                    <i class="icon fab fa-github-square fa-2x"></i>
-                </a>
-            </li>
-            <li> 
-                <a href = "https://linkedin.com/in/terry-wong-66692417a">
-                    <i class="icon fab fa-linkedin fa-2x"></i>
-                </a>
-            </li>
-            
-        </ul> 
+    <!-- Banner -->
+    <nav id = "banner">
+        <div class = "banner-name">
+            <span class = "name">Terry Wong</span>
+            <hr class = "name-underline" />
+        </div>
+        <div class="banner-container">
+            <ul class = "banner-links">
+            <li class="one"><a href="../index.html">Home</a></li><!--
+        --><li class="two"><a href="resume.html">Resume</a></li><!--
+        --><li class="three"><a href="projects.html">Projects</a></li>
+            <hr class = "third"/>
+            </ul>
+        </div>
     </nav>
-
-    <nav>
-        <ul class = "nav-links">
-            <li> <a href = "../index.html"> Home </a></li>
-            <li> <a href = "resume.html"> Resume </a></li>
-            <li> <a class = "currentLink"  id = "lastLink" href = "javascriptapp.html"> Project </a></li>
-        </ul>  
-    </nav>
-
-    <p>
-        This is me fooling around with Javascript. <br>
-        I want to put my games/apps/widgets here.
-    </p>
-</div>
 
 <div class = "contentBlock">
     <div id = "mazeBlock">
@@ -860,6 +832,7 @@
         <Button id = "hideButton" class = "gameButton pressed">Hide Walls</Button>
     </div>
 </div>
+
 
 <script src = "../script/mazeGame.js"></script>
 <script>

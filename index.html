@@ -4,63 +4,61 @@
         <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
         <link rel="stylesheet" href="style/style.css">
         <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
-      rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+        rel="stylesheet"
     />
-        
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Home Page</title>
     </head>
     <body>
+    
+    <!-- Banner -->
+    <nav id = "banner">
+        <div class = "banner-name">
+            <span class = "name">Terry Wong</span>
+            <hr class = "name-underline" />
+        </div>
+        <div class="banner-container">
+            <ul class = "banner-links">
+              <li class="one"><a href="index.html">Home</a></li><!--
+           --><li class="two"><a href="pages/resume.html">Resume</a></li><!--
+           --><li class="three"><a href="pages/projects.html">Projects</a></li>
+              <hr />
+            </ul>
+          </div>
+    </nav>
+    
+    <!-- Welcome -->
+    <div class = "home-container">
+        <div class="home-profile">
 
-    <div id="banner">
-        <nav >
-            <h1> Welcome to my website! </h1>
+            <div class = "logo">
+                <img id = "logo-image" src="images/profile.jpg"/>
+            </div>
+            
+            <h1>Welcome to my Website!</h1>
 
-            <ul class = "contact-icons">
-                <div class="profile">
-                    <img
-                      width="50"
-                      height="50"
-                      src="images/profile.jpg"
-                    />
-                    Hey, I'm Terry!
-                </div>
-                <li>
-                    <a class = "link" href = "https://github.com/TerryCLAWong">
-                        <i class="icon fab fa-github-square fa-2x"></i>
-                    </a>
+            <ul class="nav__icons">
+                <li class="nav__icon">
+                  <a class="nav__icon-link" href="#">
+                    <i class="icon fab fa-github-square fa-3x"></i>
+                  </a>
                 </li>
-                <li> 
-                    <a href = "https://linkedin.com/in/terry-wong-66692417a">
-                        <i class="icon fab fa-linkedin fa-2x"></i>
-                    </a>
+                <li class="nav__icon">
+                  <a class="nav__icon-link" href="#">
+                    <i class="icon fab fa-linkedin fa-3x"></i>
+                  </a>
                 </li>
-                
-            </ul> 
-        </nav>
+            </ul>
+           
+        </div>
+    </div>
+    
 
     
-        <nav>
-            <ul class = "nav-links">
-                <li> <a class = "currentLink" href = "index.html"> Home </a></li>
-                <li> <a href = "pages/resume.html"> Resume </a></li>
-                <li> <a id = "lastLink" href = "pages/javascriptapp.html"> Project </a></li>
-            </ul> 
-        </nav>
-        
-
-
-        <p>
-            Thanks for visiting! <br>
-            This is a work in progress. Currently, this is a testing ground for side web development practice. <br>
-            I hope to make this into a professional website one day. <br>
-
-        </p>
-    </div>
-
+    
 
     </body>
 </html>

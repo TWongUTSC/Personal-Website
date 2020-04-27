@@ -1,17 +1,11 @@
 body { 
+    margin: 0px;
     font-family: "Rubik";
-    margin: 50px;
-
     background-image: url("../images/view-cropped.jpg");
-
-
     background-size: cover;
     background-repeat: no-repeat;
-
     opacity: 1;
     animation: fadeIn 0.5s ease;
-
-
 }
 
 @keyframes fadeIn{
@@ -23,111 +17,163 @@ body {
     }
 }
 
+/*
+Banner
+*/
 
 #banner {
-    color: white;
-    text-align: left;
-    padding: 50px;
-    padding-bottom: 20px;
-
+    background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0.2))
 }
 
-
-
-/* 
-For profile logo 
-*/
-.profile {
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-  
-.profile img {
-    margin-right: 10px;
-    border-radius: 50%;
-}
-
-/*
-For navigation bar
-*/
-
-
-nav h1 { /* Title */
-    font-size: 3em;
-    display: flex;
-    margin-top: 0px;
+.banner-name {
     margin-right: auto;
+    margin-left: 20px;
+    color: white;
+    padding: .75rem;
+}
+
+hr.name-underline {
+    margin-top: 12px;
+    height: .25rem;
+    width: 100%;
+    background: orange;
+    border: none;
+}
+
+.banner-container {
+    width: 30%;
 }
 
 nav {
     display: flex;
-
 }
 
-.nav-links { 
-    padding-left: 0px;
+/*Navigation*/
+.one:hover ~ hr {
+    margin-left: 0%;
+}
+  
+.two:hover ~ hr {
+    margin-left: 33%;
+  }
+  
+.three:hover ~ hr {
+    margin-left: 66%;
+}
+
+ul.banner-links {
+    padding-inline-start: 0px;
     margin-top: 0px;
-    list-style-type: none;
-    display: flex;
-    align-items: center;
-    font-size: 1.2rem;
 }
 
-.nav-links a {
-    transition: background 0.2s ease-in-out 0s;
+ul.banner-links li {
+    display: inline;
+    text-align: center;
+}
 
-    border-radius: 25px;
-    color: white;
-    padding: 20px;
-    margin-right: 20px;
+ul.banner-links li a {
+    display: inline-block;
+    width: 33%;
+    padding: .75rem 0;
+    margin: 0;
     text-decoration: none;
-    font-weight:bold;
-}
-.nav-links a:hover {
-    background: darkorange;
+    color: white;
 }
 
-.currentLink {
-    background: darkorange;
+hr {
+    height: .25rem;
+    width: 33%;
+    margin: 0%;
+    background: orange;
+    border: none;
+    transition: .3s ease-in-out;
 }
 
-#lastLink {
-    margin-right: 0px;
+hr.second {
+    margin-left: 33%;
+}
+
+hr.third {
+    margin-left: 66%;
+}
+
+
+/*
+Profile
+*/
+
+div.home-container {
+    margin-top: 5%;
+    display: flex;
+    justify-content:center;
+}
+
+div.home-profile {
+    flex-direction: column;
+    display:flex;
+    color: white;
+}
+
+div.home-profile h1 {
+    font-size: 3em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+div.logo {
+    text-align: center;
+    font-weight: bold;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+}
+
+div.logo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
 }
 
 /*
-Contact links
+Contact Icons
 */
 
-.contact-icons {
-    padding-left: 6px;
+.nav__icons {
+    margin-top: 0px;
+    padding-inline-start: 0px;
+    padding-right: 30px;
     list-style-type: none;
     display: flex;
-    align-items: center;
-    font-size: 1.6rem;
-    margin-top: 0px;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+  
+.nav__icon {
+    margin-left: 20px;
+    color: white;
 }
 
 .icon {
     height: 50px;
     width: 50px;
-    margin-left: 20px;
     color: white;
-
     transition: color 0.2s ease-in-out 0s;
-
 }
 
-  
 .icon:hover {
     color: darkorange;
 }
 
 
+/*
+TODO
+
+add gradient on banner
 
 
+change background if needed 
+
+*/
 
 /*
 HTML TAGS
