@@ -1,5 +1,65 @@
-body {
-    font-family: "Rubik";
+/*
+Profile
+*/
+
+div.home-container {
+    margin-top: 5%;
+    display: flex;
+    justify-content:center;
+}
+
+div.home-profile {
+    flex-direction: column;
+    display:flex;
     color: white;
-    background: black;
+}
+
+div.home-profile h1 {
+    font-size: 3em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+div.logo {
+    text-align: center;
+    font-weight: bold;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+}
+
+div.logo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+/*
+Contact Icons
+*/
+
+.contact-icons {
+    margin-top: 10px;
+    padding-inline-start: 0px;
+    padding-right: 23px;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+  
+.contact-icon {
+    margin-left: 20px;
+    color: white;
+}
+
+.icon {
+    height: 50px;
+    width: 50px;
+    color: white;
+    transition: color 0.2s ease-in-out 0s;
+}
+
+.icon:hover {
+    color: darkorange;
 }

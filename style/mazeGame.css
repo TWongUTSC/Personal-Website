@@ -31,8 +31,7 @@
     width : 20px;
     z-index: -1;
     border: 1px solid grey;
-
-
+    transition: background 0.6s;
 
 }
 
