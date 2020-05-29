@@ -22,7 +22,7 @@
     height : 20px;
     width : 20px;
     z-index: -1;
-    border: 1px solid grey;
+    border: 1px solid green;
 }
 
 .wall {
@@ -30,7 +30,7 @@
     height : 20px;
     width : 20px;
     z-index: -1;
-    border: 1px solid grey;
+    border: 1px solid rgb(10,10,10);
     transition: background 0.3s;
 
 }
@@ -38,14 +38,14 @@
 .revealedWall {
     opacity: 90%;
     background: darkorange;
-    border: 1px solid grey;
+    border: 1px solid darkorange;
 }
 
 .path {
     height : 20px;
     width : 20px;
     z-index : -2;
-    border: 1px solid grey;
+    border: 1px solid rgb(10,10,10);
 
 }
 
@@ -58,7 +58,7 @@
     height: 20px;
     width : 20px;
     z-index: -2;
-    border: 1px solid grey;
+    border: 1px solid purple;
 }
 
 .player {
@@ -67,7 +67,7 @@
     height: 20px;
     width : 20px;
     z-index : 3;
-    border: 1px solid grey;
+    border: 1px solid blue;
     
 }
 
