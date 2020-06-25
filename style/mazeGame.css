@@ -2,7 +2,11 @@
     display: inline-block;
     position: relative;
     background: black;
-    z-index: -10;
+  
+}
+
+#mazeBlock {
+    background-color: black;
 }
 
 #maze div {
@@ -13,15 +17,15 @@
     background: black;
     height : 20px;
     width : 20px;
-    z-index : -2;
+
     border: 1px solid black;
 }
 
 .win {
-    background: green;
+    background-color: green;
     height : 20px;
     width : 20px;
-    z-index: -1;
+
     border: 1px solid green;
 }
 
@@ -29,7 +33,7 @@
 
     height : 20px;
     width : 20px;
-    z-index: -1;
+
     border: 1px solid rgb(10,10,10);
     transition: background 0.3s;
 
@@ -44,7 +48,7 @@
 .path {
     height : 20px;
     width : 20px;
-    z-index : -2;
+
     border: 1px solid rgb(10,10,10);
 
 }
@@ -54,10 +58,10 @@
 
 
 .start {
-    background: purple;
+    background-color: purple;
     height: 20px;
     width : 20px;
-    z-index: -2;
+
     border: 1px solid purple;
 }
 
@@ -66,27 +70,25 @@
     background: blue;
     height: 20px;
     width : 20px;
-    z-index : 3;
+
     border: 1px solid blue;
     
 }
 
 
 
-#mazeBlock {
-    text-align: center;
-    margin-bottom: -4px;
-}
 
 .contentBlock {
     display: flex;
+    
+    margin-top: 30px;
     margin-right: 50px;
-    margin-left: 32px;
+    margin-left: 50px;
+    
 }
 
 .content {
-    padding: 20px;
-    background-color: black;
+    display: table-cell;
 }
 
 #mazeInstructions {

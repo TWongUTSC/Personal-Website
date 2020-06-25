@@ -33,7 +33,7 @@
     </nav>
 
 <div class = "contentBlock">
-    <div id = "mazeBlock">
+    <div class = "content" id = "mazeBlock">
         <div id = "mazeContainer">
             <div id = "maze">
                 <div>
@@ -76,6 +76,7 @@
                     <div class = "border"> </div>
                     <div class = "border"> </div>
                 </div> <!-- Borders here -->
+                
                 <div>
                     <div class = "border"> </div>
                     <div class = "win"> </div>
@@ -814,10 +815,12 @@
                     <div class = "border"> </div>
 
                 </div> <!-- Borders here -->
+            
+            
             </div>
         </div>
     </div>
-    <div id = "mazeInstructions">
+    <div class = "content"id = "mazeInstructions">
         <div>
             <h2> Blind Maze </h2>
             <ul>
@@ -826,10 +829,15 @@
                 <li> Reveal the walls as you move around! </li>
             </ul>
         </div>
+
+        <br>
+        <br>
         <h3> Need help? </h3>
         <Button id = "revealButton" class = "gameButton">Reveal Walls</Button>
-        <br>
         <Button id = "hideButton" class = "gameButton pressed">Hide Walls</Button>
+        <Button id = "restartButton" class = "gameButton">Restart</Button>
+
+
     </div>
 </div>
 
