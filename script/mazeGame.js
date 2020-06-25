@@ -87,6 +87,7 @@ Maze.prototype.movePlayer = function (movePosition)  {
     this.mazeArray[this.playerPosition.x][this.playerPosition.y].classList.remove("player");
     this.mazeArray[movePosition.x][movePosition.y].classList.add("player");
     this.playerPosition = movePosition;
+    
 }
 
 Maze.prototype.handleButton = function (e) {
@@ -136,8 +137,8 @@ Maze.prototype.validateMove = function (movePosition) {
     }
     //Check for borders
     return this.mazeArray[movePosition.x][movePosition.y].className !== "border";
-
 }
+
 
 function Maze() {
     //Instantiate
@@ -176,6 +177,11 @@ function Maze() {
     this.revealButton = document.getElementById("revealButton");
     this.revealButtonHandler = this.revealWalls.bind(this);
     this.revealButton.addEventListener("click", this.revealButtonHandler);
+
+    //Set up restart button handling
+    this.restartButton = document.getElementById("restartButton");
+    this.restartButtonHandler = this.restart.bind(this);
+    this.restartButton.addEventListener("click", this.restartButtonHandler);
 }
 
 Maze.prototype.revealWalls = function (e) {
@@ -205,3 +211,26 @@ Maze.prototype.hideWalls = function (e) {
     //Upon pressing hide walls again, surrounding should be revealed before having to make a move
     this.reveal(this.playerPosition);
 };
+
+//Resets the player position to the beginning and hides walls
+Maze.prototype.restart = function (e) {
+    this.enabled = true
+    this.revealButton.classList.remove("pressed")
+    this.hideButton.classList.add("pressed")
+    this.resetMaze()
+}
+
+Maze.prototype.resetMaze = function() {
+    for (var i = 0; i < this.maze.children.length; i++) {
+        for (var j = 0; j < this.maze.children[i].children.length; j++) {
+            var divElement = this.maze.children[i].children[j];
+            this.mazeArray[i][j] = divElement;
+            this.mazeArray[i][j].classList.remove("player")
+            this.mazeArray[i][j].classList.remove("revealedWall")
+            if (divElement.className === "start") {
+                this.playerPosition = new Position(i, j);
+                this.mazeArray[i][j].classList.add("player")
+            }
+        }
+    }
+}
