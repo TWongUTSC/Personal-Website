@@ -3,7 +3,10 @@
     <head>
         <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
         <link rel="stylesheet" href="../style/style.css">
+        <link rel="stylesheet" href="../style/projects.css">
         <link rel="stylesheet" href="../style/mazeGame.css">
+        <link rel="stylesheet" href="../style/gridGame.css">
+
         <link
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
         rel="stylesheet"
@@ -32,8 +35,32 @@
         </div>
     </nav>
 
+<!-- Grid Game -->
 <div class = "contentBlock">
-    <div class = "content" id = "mazeBlock">
+
+    <!-- Grid Game container-->
+    <div id = "gridContainer"> 
+        <canvas id = "gridGame"></canvas>
+    </div>
+
+    <!-- Grid Game Instructions -->
+    <div class = "instructions" id = "gridInstructions">
+        <div>
+            <h2> Grid Game </h2>
+            <ul>
+                <li> Find your way to the green square </li>
+                <li> Use arrow keys to move </li>
+                <li> Reveal the walls around as you move </li>
+                <li> Good luck! </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Maze Game -->
+<div class = "contentBlock">
+    <!-- Maze content -->
+    <div id = "mazeBlock">
         <div id = "mazeContainer">
             <div id = "maze">
                 <div>
@@ -820,7 +847,9 @@
             </div>
         </div>
     </div>
-    <div class = "content"id = "mazeInstructions">
+
+    <!-- Maze Instructions -->
+    <div class = "instructions" id = "mazeInstructions">
         <div>
             <h2> Blind Maze </h2>
             <ul>
@@ -835,12 +864,12 @@
         <Button id = "revealButton" class = "gameButton">Reveal Walls</Button>
         <Button id = "hideButton" class = "gameButton pressed">Hide Walls</Button>
         <Button id = "restartButton" class = "gameButton">Restart</Button>
-
-
     </div>
 </div>
 
 
+
+<!-- Maze Game init -->
 <script src = "../script/mazeGame.js"></script>
 <script>
     //Load Game
