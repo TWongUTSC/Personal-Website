@@ -194,51 +194,60 @@ function Maze() {
 }
 
 Maze.prototype.revealWalls = function (e) {
-    this.enabled = false;
-    this.revealButton.classList.add("pressed")
-    this.hideButton.classList.remove("pressed")
-    for (var i = 0 ; i < this.mazeArray.length ; i++) {
-        for (var j = 0 ; j < this.mazeArray[i].length ; j++) {
-            if (!this.mazeArray[i][j].classList.contains("revealedWall") && this.mazeArray[i][j].classList.contains("wall")) {
-                this.mazeArray[i][j].classList.add("revealedWall")
+    if (this.gameStarted) {
+        this.enabled = false;
+        this.revealButton.classList.add("pressed")
+        this.hideButton.classList.remove("pressed")
+        for (var i = 0 ; i < this.mazeArray.length ; i++) {
+            for (var j = 0 ; j < this.mazeArray[i].length ; j++) {
+                if (!this.mazeArray[i][j].classList.contains("revealedWall") && this.mazeArray[i][j].classList.contains("wall")) {
+                    this.mazeArray[i][j].classList.add("revealedWall")
+                }
             }
         }
     }
 };
 
 Maze.prototype.hideWalls = function (e) {
-    this.enabled = true;
-    this.revealButton.classList.remove("pressed")
-    this.hideButton.classList.add("pressed")
-    for (var i = 0 ; i < this.mazeArray.length ; i++) {
-        for (var j = 0 ; j < this.mazeArray[i].length ; j++) {
-            if (this.mazeArray[i][j].classList.contains("revealedWall") && this.mazeArray[i][j].classList.contains("wall")) {
-                this.mazeArray[i][j].classList.remove("revealedWall")
+    if (this.gameStarted) {
+        this.enabled = true;
+        this.revealButton.classList.remove("pressed")
+        this.hideButton.classList.add("pressed")
+        for (var i = 0 ; i < this.mazeArray.length ; i++) {
+            for (var j = 0 ; j < this.mazeArray[i].length ; j++) {
+                if (this.mazeArray[i][j].classList.contains("revealedWall") && this.mazeArray[i][j].classList.contains("wall")) {
+                    this.mazeArray[i][j].classList.remove("revealedWall")
+                }
             }
         }
+        //Upon pressing hide walls again, surrounding should be revealed before having to make a move
+        this.reveal(this.playerPosition);
     }
-    //Upon pressing hide walls again, surrounding should be revealed before having to make a move
-    this.reveal(this.playerPosition);
 };
 
 //Resets the player position to the beginning and hides walls
 Maze.prototype.restart = function (e) {
-    this.enabled = true
-    this.revealButton.classList.remove("pressed")
-    this.hideButton.classList.add("pressed")
-    this.resetMaze()
+    if (this.gameStarted) {
+        this.enabled = true
+        this.revealButton.classList.remove("pressed")
+        this.hideButton.classList.add("pressed")
+        this.resetMaze()
+    }
+
 }
 
 Maze.prototype.resetMaze = function() {
-    for (var i = 0; i < this.maze.children.length; i++) {
-        for (var j = 0; j < this.maze.children[i].children.length; j++) {
-            var divElement = this.maze.children[i].children[j];
-            this.mazeArray[i][j] = divElement;
-            this.mazeArray[i][j].classList.remove("player")
-            this.mazeArray[i][j].classList.remove("revealedWall")
-            if (divElement.className === "start") {
-                this.playerPosition = new Position(i, j);
-                this.mazeArray[i][j].classList.add("player")
+    if (this.gameStarted) {
+        for (var i = 0; i < this.maze.children.length; i++) {
+            for (var j = 0; j < this.maze.children[i].children.length; j++) {
+                var divElement = this.maze.children[i].children[j];
+                this.mazeArray[i][j] = divElement;
+                this.mazeArray[i][j].classList.remove("player")
+                this.mazeArray[i][j].classList.remove("revealedWall")
+                if (divElement.className === "start") {
+                    this.playerPosition = new Position(i, j);
+                    this.mazeArray[i][j].classList.add("player")
+                }
             }
         }
     }
