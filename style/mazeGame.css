@@ -1,4 +1,26 @@
+#mazeStartButton {
+    position: absolute;
+    z-index: 9;
+    height: 100%;
+    width: 100%;
+    color: white;
+    background: rgb(255,140,0, 0.1);
+    text-align: center;
+    transition: background 0.2s ease-in-out 0s;
+    margin-bottom: 0px;
+}
+
+#mazeStartButton:hover {
+    background: rgb(255,140,0, 0.2);
+}
+
+#mazeStartButton .center {
+    padding: 22% 0;
+
+}
+
 #mazeContainer {
+    z-index: 1;
     display: inline-block;
     position: relative;
     background: black;
@@ -6,6 +28,7 @@
 }
 
 #mazeBlock {
+    position: relative;
     background-color: black;
 }
 
@@ -80,15 +103,10 @@
 
 .contentBlock {
     display: flex;
-    
     margin-top: 30px;
     margin-right: 50px;
     margin-left: 50px;
     
-}
-
-.content {
-    display: table-cell;
 }
 
 #mazeInstructions {

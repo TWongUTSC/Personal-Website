@@ -1,0 +1,7 @@
+.instructions {
+    padding: 40px;
+    color: white;
+    background: black;
+    flex: 1;
+    border-radius: 0px 100px 100px 0px;
+}

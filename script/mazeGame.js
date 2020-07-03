@@ -3,6 +3,7 @@ function Position (x, y) {
     this.y = y;
 }
 var enabled = true;
+var gameStarted = false;
 
 Maze.prototype.reveal = function (position) {
     var x = position.x;
@@ -84,9 +85,12 @@ Maze.prototype.unReveal = function (position) {
 }
 
 Maze.prototype.movePlayer = function (movePosition)  {
-    this.mazeArray[this.playerPosition.x][this.playerPosition.y].classList.remove("player");
-    this.mazeArray[movePosition.x][movePosition.y].classList.add("player");
-    this.playerPosition = movePosition;
+    if (this.gameStarted)  {
+        this.mazeArray[this.playerPosition.x][this.playerPosition.y].classList.remove("player");
+        this.mazeArray[movePosition.x][movePosition.y].classList.add("player");
+        this.playerPosition = movePosition;
+    }
+
     
 }
 
@@ -182,6 +186,11 @@ function Maze() {
     this.restartButton = document.getElementById("restartButton");
     this.restartButtonHandler = this.restart.bind(this);
     this.restartButton.addEventListener("click", this.restartButtonHandler);
+
+    //Set up start button handling
+    this.startButton = document.getElementById("mazeStartButton");
+    this.startButtonHandler = this.startGame.bind(this);
+    this.startButton.addEventListener("click", this.startButtonHandler);
 }
 
 Maze.prototype.revealWalls = function (e) {
@@ -233,4 +242,9 @@ Maze.prototype.resetMaze = function() {
             }
         }
     }
+}
+
+Maze.prototype.startGame = function() {
+    this.gameStarted = true;
+    document.getElementById("mazeStartButton").remove()
 }
