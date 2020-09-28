@@ -1,3 +1,4 @@
+
 /*
 Profile
 */
@@ -12,7 +13,28 @@ div.home-profile {
     flex-direction: column;
     display:flex;
     color: white;
+    opacity: 0;
 }
+
+/* Profile Animations */
+.fadeInUp {
+    opacity: 0;
+    animation-name: fadeInUp;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0,40px,0)
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+/**/
 
 div.home-profile h1 {
     font-size: 3em;
