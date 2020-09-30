@@ -18,7 +18,6 @@ div.home-profile {
 
 /* Profile Animations */
 .fadeInUp {
-    opacity: 0;
     animation-name: fadeInUp;
     animation-duration: 2s;
     animation-fill-mode: both;
@@ -34,7 +33,7 @@ div.home-profile {
         opacity: 1
     }
 }
-/**/
+/*--------------------*/
 
 div.home-profile h1 {
     font-size: 3em;

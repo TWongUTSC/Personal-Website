@@ -1,9 +1,19 @@
+html {
+    /*Here for the background-image covers entire page instead of just elements within body*/
+    height: 100%;
+}
+
 body { 
     margin: 0px;
     font-family: "Rubik";
-    background-image: url("../images/view-cropped-large.jpg");
+    /*Scrollbar always visible to prevent sudden element shift*/
+    overflow-y: scroll;
+    /*background-image: url("../images/view-cropped-large.jpg");*/
+    /*background: linear-gradient(rgb(50,50,50) , rgb(90,90,90));*/
+    background: rgb(50,50,50);
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     opacity: 1;
     animation: fadeIn 0.5s ease;
 }
@@ -15,6 +25,26 @@ body {
     100%{
         opacity: 1;
     }
+}
+
+/*
+Scrollbar
+*/
+
+/* Initialized scrollbar to be modified */
+body::-webkit-scrollbar {
+    width: 8px;
+    overflow-y: overlay;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+    background: rgb(50,50,50)
+}
+ 
+/* Handle */
+body::-webkit-scrollbar-thumb {
+    background: orange; 
 }
 
 /*
