@@ -37,24 +37,24 @@
 
 .border {
     background: black;
-    height : 20px;
-    width : 20px;
+    height : 18px;
+    width : 18px;
 
     border: 1px solid black;
 }
 
 .win {
     background-color: green;
-    height : 20px;
-    width : 20px;
+    height : 18px;
+    width : 18px;
 
     border: 1px solid green;
 }
 
 .wall {
 
-    height : 20px;
-    width : 20px;
+    height : 18px;
+    width : 18px;
 
     border: 1px solid rgb(10,10,10);
     transition: background 0.3s;
@@ -68,8 +68,8 @@
 }
 
 .path {
-    height : 20px;
-    width : 20px;
+    height : 18px;
+    width : 18px;
 
     border: 1px solid rgb(10,10,10);
 
@@ -81,8 +81,8 @@
 
 .start {
     background-color: purple;
-    height: 20px;
-    width : 20px;
+    height: 18px;
+    width : 18px;
 
     border: 1px solid purple;
 }
@@ -90,8 +90,8 @@
 .player {
 
     background: blue;
-    height: 20px;
-    width : 20px;
+    height: 18px;
+    width : 18px;
 
     border: 1px solid blue;
     
@@ -102,7 +102,7 @@
 
 .contentBlock {
     display: flex;
-    margin: 2% 2.5%;
+    margin: 2% 0%;
 }
 
 #mazeInstructions {
@@ -119,19 +119,26 @@
     margin-bottom : 0px;
 }
 
+.buttonContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .gameButton {
     border-radius: 25px;
     background: grey;
     color: white;
     padding: 20px;
-    margin-right: 20px;
+ 
     text-decoration: none;
     font-weight:bold;
     outline: none;
     border:1px solid black;
-
     transition: background 0.2s ease-in-out 0s;
-    margin-bottom: 20px;
+    
+    
+    margin: 10px;
+    justify-content: space-evenly;
 }
 
 .gameButton:hover {
