@@ -60,8 +60,13 @@ Banner
     text-decoration: none;
 }
 
-.banner-name {
+.banner-logo {
     margin-right: auto;
+}
+.banner-logo img {
+    margin-top: 6px;
+    width: 40px;
+    height: 40px;
 }
 
 hr.name-underline {
