@@ -11,12 +11,12 @@ body {
     
 
 
-    font-family: "Rubik";
+    font-family: "Montserrat";
     /*Scrollbar always visible to prevent sudden element shift*/
     overflow-y: scroll;
     /*background-image: url("../images/view-cropped-large.jpg");*/
     /*background: linear-gradient(rgb(50,50,50) , rgb(90,90,90));*/
-    background: rgb(30,30,30);
+    background: rgb(15,15,17);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

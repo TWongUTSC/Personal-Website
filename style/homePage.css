@@ -1,19 +1,54 @@
 .section {
-    margin-top: 8%;
+    flex-wrap: wrap;
     display: flex;
-    white-space: nowrap; /*retains newlines in raw html*/
+    white-space: nowrap; 
 }
 
-.subtitle {
-    text-align: right;
-    color: orange;
-    white-space: pre-wrap; /*retains newlines in raw html*/
+.division {
+    margin-top:10%
 }
+
+.logo {
+    margin-top: 20px;
+    margin-right:5%;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+}
+
+
+/*
+About Me
+*/
+
+#about-me {
+    padding-top: 5%;
+    color: white;
+}
+
+.test {
+    height: 50%;
+    width: 33%;
+    background: blue;
+    border: 1px solid white ;
+}
+
+.test h2 {
+    padding: 20px;
+}
+
 
 /*
 Profile Secondary
 */
 
+.subtitle {
+    color: orange
+}
+
+.subtitle h2 {
+    margin: 0px;
+}
 
 /*Animations */
 .fadeInLeft {
@@ -37,17 +72,12 @@ Profile Secondary
 /*
 Profile Main
 */
-#name-main {
-    padding-top: 7px;
-}
-
-div.home-profile { /*change this into ID*/
-    margin-right: auto;
+#home-profile { /*change this into ID*/
     color: white;
     opacity: 0;
 }
 
-div.home-profile h1 {
+#home-profile h1 {
     font-size: 4em;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -73,12 +103,20 @@ div.home-profile h1 {
 /*--------------------*/
 
 
-.logo {
-    margin-right:10%;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 Contact Icons, used in old index.html
