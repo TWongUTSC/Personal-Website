@@ -28,7 +28,6 @@
 
 #mazeBlock {
     position: relative;
-    background-color: black;
 }
 
 #maze div {
@@ -110,7 +109,6 @@
     padding-left: 50px;
     color: white;
     background-color: black;
-    flex: 1;
     border-radius: 0px 100px 100px 0px;
 }
 

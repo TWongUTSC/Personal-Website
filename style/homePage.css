@@ -1,106 +1,35 @@
-.section {
-    flex-wrap: wrap;
-    display: flex;
-    white-space: nowrap; 
-}
-
-.division {
-    margin-top:10%
-}
-
-.logo {
-    margin-top: 20px;
+/*
+Profile Main
+*/
+#profile-pic {
+    margin-top: 25px;
     margin-right:5%;
-    width: 130px;
-    height: 130px;
+    width: 170px;
+    height: 170px;
     border-radius: 50%;
 }
 
-
-/*
-About Me
-*/
-
-#about-me {
-    padding-top: 5%;
+#home-profile {
+    margin-top: 15%;
     color: white;
+    opacity: 0;
 }
 
-.test {
-    height: 50%;
-    width: 33%;
-    background: blue;
-    border: 1px solid white ;
-}
 
-.test h2 {
-    padding: 20px;
+#name-main {
+    font-size: 90px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
-
 
 /*
 Profile Secondary
 */
 
 .subtitle {
-    color: orange
+    color: darkorange
 }
 
-.subtitle h2 {
-    margin: 0px;
-}
-
-/*Animations */
-.fadeInLeft {
-    animation-name: fadeInLeft;
-    animation-duration: 1s;
-    animation-fill-mode: both;
-}
-
-@keyframes fadeInLeft {
-    from {
-        transform: translate3d(150px,0,0)
-    }
-
-    to {
-        transform: translate3d(0,0,0);
-        opacity: 1
-    }
-}
-/*--------------------*/
-
-/*
-Profile Main
-*/
-#home-profile { /*change this into ID*/
-    color: white;
-    opacity: 0;
-}
-
-#home-profile h1 {
-    font-size: 4em;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-/*Animations */
-.fadeInRight {
-    animation-name: fadeInRight;
-    animation-duration: 1s;
-    animation-fill-mode: both;
-}
-
-@keyframes fadeInRight {
-    from {
-        transform: translate3d(-150px,0,0)
-    }
-
-    to {
-        transform: translate3d(0,0,0);
-        opacity: 1
-    }
-}
-/*--------------------*/
 
 
 

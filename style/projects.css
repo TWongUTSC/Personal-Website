@@ -1,8 +1,12 @@
 .instructions {
-    padding: 0px 15px;
+    margin-left: 3%;
     color: white;
 
     flex: 1;
     border-radius: 0px 100px 100px 0px;
     
+}
+
+.game-title {
+    margin-top: 0px;
 }

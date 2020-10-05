@@ -1,10 +1,13 @@
+/*
+General tag styling
+*/
 html {
     /*Here for the background-image covers entire page instead of just elements within body*/
     height: 100%;
 }
 
 body { 
-    max-width: 65rem;
+    max-width: 70rem;
     margin-top: 1%;
     margin-right: auto;
     margin-left: auto;
@@ -26,6 +29,74 @@ body {
     */
 }
 
+a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: darkorange;
+}
+
+ul {
+    padding-left: 4%;
+}
+
+/*
+General structure styling
+*/
+.footer * {
+    color: rgb(50,50,50);;
+    margin-top: 75px;
+    margin-bottom: 25px;
+}
+
+.text-content {
+    font-size: 19px;
+}
+
+.wrap {
+    white-space: pre-wrap;
+}
+
+.section {
+    color: white;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.section-header {
+    font-size: 40px;
+    margin-bottom: 1%;
+}
+
+.subsection {
+    width: 31%;
+}
+
+.subsection h2 {
+    margin-top: 0px;
+    margin-bottom: 1%;
+}
+
+.subsection p {
+    margin-top: 1%;
+}
+
+.division {
+    color: white;
+    margin-top:13%
+}
+
+.even-spacing {
+    justify-content: space-between;
+}
+
+.animated {
+    opacity: 0;
+}
+
 
 /*
 Scrollbar
@@ -44,14 +115,14 @@ body::-webkit-scrollbar-track {
  
 /* Handle */
 body::-webkit-scrollbar-thumb {
-    background: orange; 
+    background: darkorange; 
 }
 
 /*
 Banner
 */
 
-#banner { /*TODO remove after fixing margins */
+#banner {
     margin: 0% 0%;
 }
 
@@ -73,7 +144,7 @@ hr.name-underline {
     margin-top: 12px;
     height: .25rem;
     width: 100%;
-    background: orange;
+    background: darkorange;
     border: none;
 }
 
@@ -119,58 +190,49 @@ hr {
     height: .25rem;
     width: 50%;
     margin: 0%;
-    background: orange;
+    background: darkorange;
     border: none;
     transition: .3s ease-in-out;
 }
 
-
-
-
-
-
-
-
-
 /*
-HTML TAGS
-
-nav - defines a block of navigation links
-
-css:
-hover
-    color:teal
-
-transition used one parent of css selector with hover
-
-circular picture for home page
-
-on css selector
-cursor:pointer
- */
-
-/*
-Maze Features
-- portals
-- multuple levels
-- change player color
-- one way walls
-- reveal walls with input
-- shift 90 degrees every 10 seconds
-- sound effects for walking or running into wall
+Animations
 */
 
-/*  Redesign and Refactoring
+.deley {
+    animation-delay: 0.5s;
+}
 
-    - clean up and organize css pages
-    - write functions that convert an array of 0 and 1 that alters the
-      divs in the mazegame div
-        - use this to easily change characters
-    - choose your character color options
-        - use rgb?
-        - use hex?
-        - colors of walls and everything else?
+.fadeInRight {
+    animation-name: fadeInRight;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
 
- */
+@keyframes fadeInRight {
+    from {
+        transform: translate3d(-150px,0,0)
+    }
 
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
 
+.fadeInLeft {
+    animation-name: fadeInLeft;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeInLeft {
+    from {
+        transform: translate3d(150px,0,0)
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}

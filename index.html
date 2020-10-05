@@ -22,27 +22,25 @@
     <!-- Banner -->
     <nav id = "banner">
         <div class = "banner-logo">
-            <span class = "name">  <img src = "images/biglogowhiteCut.png"> </span>
+            <span>  <img src = "images/biglogowhiteCut.png"> </span>
         </div>
         <div class="banner-container">
             <ul class = "banner-links">
-              <li class="one"><a href="index.html">Home</a></li><!--This comment is needed in order for li to display inline for some magical reason
-           --><li class="two"><a href="pages/projects.html">Projects</a></li>
+              <li class="one text-content"><a href="index.html">Home</a></li><!--This comment is needed in order for li to display inline for some magical reason
+           --><li class="two text-content"><a href="pages/projects.html">Projects</a></li>
               <hr />
             </ul>
           </div>
     </nav>
     
     <!-- Welcome -->
-    <div id = "home-profile" class = "division fadeInRight">
+    <div id = "home-profile" class = "fadeInRight">
           <div class = "section">
-            <img class = "logo" src="images/profile.jpg"/>
+            <img id = "profile-pic" src="images/profile.jpg"/>
             <div>
               <h1 id = "name-main">Terry Wong</h1>
               <div class = "subtitle">
-                <h2>
-                  Software Engineering Co-op <br>
-                  3rd Year @UofT
+                <h2>Software Engineering Co-op<br>3rd Year @UofT
                 </h2>
               </div>
             </div>
@@ -51,26 +49,96 @@
     </div>
 
     <!--About me-->
-    <div id = "about-me" class = "division">
-      <h1>About Me:</h1>
-
-      <div class = "section">
-        <div class = "test">
-          <h2>222</h2>
+    <div id = "about-me" class = "division fadeInRight deley animated">
+      <!--Title-->
+      <div class = "section-header">About Me</div>
+      <!--Content-->
+      <div" class = "section even-spacing">
+        
+        <div class = "subsection">
+          <h2 class = "subtitle" >University Student</h2>
+          <p class = "text-content">
+            I'm a Computer Science student studying at the
+            University of Toronto Scarborough. Currently taking courses on Algorithm Design and Computational Mathematics.
         </div>
        
-          <div class = "test">
-            <h2>222</h2>
-          </div>
+        <div class = "subsection">
+          <h2 class = "subtitle">Software Developer</h2>
+          <p class = "text-content">I'm an aspiring full-stack developer but I am currently more interesting in front-end UX. I plan to recreate this website using the MEAN stack while hosting using GitHub Pages. In the MEANtime, please checkout some of my <a style = "color: orange" href = "pages/projects.html" class = "text-content">games!</a></p>  
+        </div>
 
-          <div class = "test">
-            <h2>222</h2>
-          </div>
+        <div class = "subsection">
+          <h2 class = "subtitle">Home Cook</h2>
+          <p class = "text-content">When it comes time to eat, I love using creativity in the Kitchen! I always try to put and Asian twist on Western-style food and serve to friends/family whenenver I get the chance.</p>
+        </div>
+
       </div>
 
     </div>
 
     <!--Skills-->
+    <div class = "division fadeInLeft deley animated">
+      <!--Title-->
+      <div class = "section-header">Here's what I can do</div>
+      <!--Content-->
+      <div class = "section even-spacing">
+        <div class = "subsection">
+          <h2 class = "subtitle">Frameworks / Tools</h2>
+          <p class = "text-content">Git, Blue Jay, React, Node.js, Jira, Postman</p>
+        </div>
+       
+        <div class = "subsection">
+          <h2 class = "subtitle">Databases</h2>
+          <p class = "text-content">MySQL, MongoDB, Neo4j</p>
+        </div>
+
+        <div class = "subsection">
+          <h2 class = "subtitle">Languages</h2>
+          <p class = "text-content">Go, Java, JavaScript, Python, C, HTML/CSS</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!--Contact-->
+    <div class = "division fadeInRight deley animated">
+      <!--Title-->
+      <div class = "section-header">Stay in touch!</div>
+      <!--Content-->
+      <div class = "section even-spacing">
+        <div class = "subsection">
+          <h2 class = "subtitle">Email</h2>
+          <a href = "mailto: anselm.wong@mail.utoronto.ca" class = "text-content">anselm.wong@mail.utoronto.ca</a>
+        </div>
+        
+        <div class = "subsection">
+          <h2 class = "subtitle">GitHub</h2>
+          <a href = "https://github.com/TerryCLAWong" class = "text-content">github.com/TerryCLAWong</a>
+        </div>
+
+        <div class = "subsection">
+          <h2 class = "subtitle">Linkedin</h2>
+          <a href = "https://www.linkedin.com/in/terry-wong-66692417a/" class = "text-content">linkedin.com/in/terryclawong</a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!--Footer-->
+    <div class = "footer">
+      <div class = "section">
+      <p style= "margin-right: auto">
+        Made with &lt3 by Terry Wong
+      </p>
+
+      <p>
+        Hosted using GitHub Pages
+      </p>
+      </div>
+
+    </div>
     
 
     </body>
