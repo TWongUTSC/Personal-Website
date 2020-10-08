@@ -97,6 +97,11 @@ General structure styling
     opacity: 0;
 }
 
+.center {
+    justify-content: center;
+    text-align: center;
+}
+
 
 /*
 Scrollbar
