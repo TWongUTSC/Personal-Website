@@ -51,7 +51,8 @@ General structure styling
 */
 
 .text-content {
-    font-size: 19px;
+    line-height: 140%;
+    font-size: 20px;
 }
 
 .wrap {
