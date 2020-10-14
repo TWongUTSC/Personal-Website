@@ -123,6 +123,7 @@
 }
 
 .gameButton {
+    width: 100px;
     border-radius: 25px;
     background: grey;
     color: white;
@@ -142,5 +143,3 @@
 .gameButton:hover {
     background: darkorange;
 }
-
-.pressed { background: darkorange}
