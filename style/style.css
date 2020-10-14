@@ -1,20 +1,133 @@
-body { 
-    margin: 0px;
-    font-family: "Rubik";
-    background-image: url("../images/view-cropped-large.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    opacity: 1;
-    animation: fadeIn 0.5s ease;
+/*
+General tag styling
+*/
+html {
+    /*Here for the background-image covers entire page instead of just elements within body*/
+    height: 100%;
 }
 
-@keyframes fadeIn{
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
+body { 
+    max-width: 70rem;
+    
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    
+    
+
+
+    font-family: "Montserrat";
+    /*Scrollbar always visible to prevent sudden element shift*/
+    overflow-y: scroll;
+    /*background-image: url("../images/view-cropped-large.jpg");*/
+    /*background: linear-gradient(rgb(50,50,50) , rgb(90,90,90));*/
+    background: rgb(15,15,17);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    /* what is the third parameter?
+    animation: fadeIn 0.5s ease;
+    */
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: darkorange;
+}
+
+ul {
+    padding-left: 4%;
+}
+
+/*
+General structure styling
+*/
+
+.text-content {
+    line-height: 140%;
+    font-size: 20px;
+}
+
+.wrap {
+    white-space: pre-wrap;
+}
+
+.section {
+    color: white;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.section-header {
+    font-size: 40px;
+    margin-bottom: 1%;
+}
+
+.one-third {
+    width: 31%;
+}
+
+.two-thirds {
+    width: 70%;
+}
+
+.one-half {
+    width: 45%;
+}
+
+.subsection h2 {
+    margin-top: 0px;
+    margin-bottom: 1%;
+}
+
+.subsection p {
+    margin-top: 1%;
+}
+
+.division {
+    color: white;
+    margin-top:13%
+}
+
+.even-spacing {
+    justify-content: space-between;
+}
+
+.animated {
+    opacity: 0;
+}
+
+.center {
+    justify-content: center;
+    text-align: center;
+}
+
+
+/*
+Scrollbar
+*/
+
+/* Initialized scrollbar to be modified */
+body::-webkit-scrollbar {
+    width: 8px;
+    overflow-y: overlay;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+    background: rgb(35,35,35)
+}
+ 
+/* Handle */
+body::-webkit-scrollbar-thumb {
+    background: darkorange; 
 }
 
 /*
@@ -22,7 +135,8 @@ Banner
 */
 
 #banner {
-    background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0.2));
+    background: rgb(35,35,35);
+    padding: 0px 5%;
 }
 
 #banner a {
@@ -30,17 +144,20 @@ Banner
     text-decoration: none;
 }
 
-.banner-name {
+.banner-logo {
     margin-right: auto;
-    margin-left: 20px;
-    padding: .75rem;
+}
+.banner-logo img {
+    margin-top: 10px;
+    width: 50px;
+    height: 50px;
 }
 
 hr.name-underline {
     margin-top: 12px;
     height: .25rem;
     width: 100%;
-    background: orange;
+    background: darkorange;
     border: none;
 }
 
@@ -58,11 +175,11 @@ nav {
 }
   
 .two:hover ~ hr {
-    margin-left: 33%;
-  }
-  
-.three:hover ~ hr {
-    margin-left: 66%;
+    margin-left: 50%;
+}
+
+hr.second { /*Starting margin*/
+    margin-left: 50%;
 }
 
 ul.banner-links {
@@ -77,80 +194,72 @@ ul.banner-links li {
 
 ul.banner-links li a {
     display: inline-block;
-    width: 33%;
+    width: 50%;
     padding: .75rem 0;
     margin: 0;
 }
 
 hr {
     height: .25rem;
-    width: 33%;
+    width: 50%;
     margin: 0%;
-    background: orange;
+    background: darkorange;
     border: none;
     transition: .3s ease-in-out;
 }
 
-hr.second {
-    margin-left: 33%;
+/*
+Footer
+*/
+#footer  {
+    padding: 0px 5%;
+    margin-top: 20%;
+    background: rgb(35,35,35);
 }
 
-hr.third {
-    margin-left: 66%;
+#footer p {
+    color: white;
 }
 
 
-
-
 /*
-TODO
-
-add gradient on banner
-
-
-change background if needed 
-
+Animations
 */
 
-/*
-HTML TAGS
+.deley {
+    animation-delay: 0.5s;
+}
 
-nav - defines a block of navigation links
+.fadeInRight {
+    animation-name: fadeInRight;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
 
-css:
-hover
-    color:teal
+@keyframes fadeInRight {
+    from {
+        transform: translate3d(-150px,0,0)
+    }
 
-transition used one parent of css selector with hover
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
 
-circular picture for home page
+.fadeInLeft {
+    animation-name: fadeInLeft;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
 
-on css selector
-cursor:pointer
- */
+@keyframes fadeInLeft {
+    from {
+        transform: translate3d(150px,0,0)
+    }
 
-/*
-Maze Features
-- portals
-- multuple levels
-- change player color
-- one way walls
-- reveal walls with input
-- shift 90 degrees every 10 seconds
-- sound effects for walking or running into wall
-*/
-
-/*  Redesign and Refactoring
-
-    - clean up and organize css pages
-    - write functions that convert an array of 0 and 1 that alters the
-      divs in the mazegame div
-        - use this to easily change characters
-    - choose your character color options
-        - use rgb?
-        - use hex?
-        - colors of walls and everything else?
-
- */
-
-
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}

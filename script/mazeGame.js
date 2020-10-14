@@ -2,7 +2,6 @@ function Position (x, y) {
     this.x = x;
     this.y = y;
 }
-var enabled = true;
 
 Maze.prototype.reveal = function (position) {
     var x = position.x;
@@ -84,10 +83,11 @@ Maze.prototype.unReveal = function (position) {
 }
 
 Maze.prototype.movePlayer = function (movePosition)  {
-    this.mazeArray[this.playerPosition.x][this.playerPosition.y].classList.remove("player");
-    this.mazeArray[movePosition.x][movePosition.y].classList.add("player");
-    this.playerPosition = movePosition;
-    
+    if (this.gameStarted)  {
+        this.mazeArray[this.playerPosition.x][this.playerPosition.y].classList.remove("player");
+        this.mazeArray[movePosition.x][movePosition.y].classList.add("player");
+        this.playerPosition = movePosition;
+    }
 }
 
 Maze.prototype.handleButton = function (e) {
@@ -142,7 +142,8 @@ Maze.prototype.validateMove = function (movePosition) {
 
 function Maze() {
     //Instantiate
-    this.enabled = true;
+    this.enabled = true; //Enables wall hiding / showing
+    this.wallsHidden = true;
     this.playerPosition = {};
     this.startPosition = {};
     this.maze = document.getElementById("maze");
@@ -168,26 +169,24 @@ function Maze() {
     this.keyPressHandler = this.handleButton.bind(this);
     document.addEventListener('keydown', this.keyPressHandler);
 
-    //Set up hide button handling
-    this.hideButton = document.getElementById("hideButton");
-    this.hideButtonHandler = this.hideWalls.bind(this);
-    this.hideButton.addEventListener("click", this.hideButtonHandler);
-
-    //Set up reveal button handling
-    this.revealButton = document.getElementById("revealButton");
-    this.revealButtonHandler = this.revealWalls.bind(this);
-    this.revealButton.addEventListener("click", this.revealButtonHandler);
+    //Set up show/hide button handling
+    this.showhideButton = document.getElementById("showhideButton");
+    this.showhideButtonHandler = this.showhideWalls.bind(this);
+    this.showhideButton.addEventListener("click", this.showhideButtonHandler);
 
     //Set up restart button handling
     this.restartButton = document.getElementById("restartButton");
     this.restartButtonHandler = this.restart.bind(this);
     this.restartButton.addEventListener("click", this.restartButtonHandler);
+
+    //Set up start button handling
+    this.startButton = document.getElementById("mazeStartButton");
+    this.startButtonHandler = this.startGame.bind(this);
+    this.startButton.addEventListener("click", this.startButtonHandler);
 }
 
 Maze.prototype.revealWalls = function (e) {
     this.enabled = false;
-    this.revealButton.classList.add("pressed")
-    this.hideButton.classList.remove("pressed")
     for (var i = 0 ; i < this.mazeArray.length ; i++) {
         for (var j = 0 ; j < this.mazeArray[i].length ; j++) {
             if (!this.mazeArray[i][j].classList.contains("revealedWall") && this.mazeArray[i][j].classList.contains("wall")) {
@@ -199,8 +198,6 @@ Maze.prototype.revealWalls = function (e) {
 
 Maze.prototype.hideWalls = function (e) {
     this.enabled = true;
-    this.revealButton.classList.remove("pressed")
-    this.hideButton.classList.add("pressed")
     for (var i = 0 ; i < this.mazeArray.length ; i++) {
         for (var j = 0 ; j < this.mazeArray[i].length ; j++) {
             if (this.mazeArray[i][j].classList.contains("revealedWall") && this.mazeArray[i][j].classList.contains("wall")) {
@@ -212,25 +209,48 @@ Maze.prototype.hideWalls = function (e) {
     this.reveal(this.playerPosition);
 };
 
+Maze.prototype.showhideWalls = function(e) {
+    this.showhideButton = document.getElementById("showhideButton");
+    if (this.gameStarted) {
+        if (this.wallsHidden) { //Shows walls
+            this.showhideButton.innerText = "Hide"
+            this.revealWalls(e)
+            this.wallsHidden = false
+        } else { //Hides walls
+            this.showhideButton.innerText = "Show"
+            this.hideWalls(e)
+            this.wallsHidden = true
+        }
+    }
+}
+
 //Resets the player position to the beginning and hides walls
 Maze.prototype.restart = function (e) {
-    this.enabled = true
-    this.revealButton.classList.remove("pressed")
-    this.hideButton.classList.add("pressed")
-    this.resetMaze()
+    if (this.gameStarted) {
+        this.enabled = true
+        document.getElementById("showhideButton").innerHTML = "Show"
+        this.resetMaze()
+    }
 }
 
 Maze.prototype.resetMaze = function() {
-    for (var i = 0; i < this.maze.children.length; i++) {
-        for (var j = 0; j < this.maze.children[i].children.length; j++) {
-            var divElement = this.maze.children[i].children[j];
-            this.mazeArray[i][j] = divElement;
-            this.mazeArray[i][j].classList.remove("player")
-            this.mazeArray[i][j].classList.remove("revealedWall")
-            if (divElement.className === "start") {
-                this.playerPosition = new Position(i, j);
-                this.mazeArray[i][j].classList.add("player")
+    if (this.gameStarted) {
+        for (var i = 0; i < this.maze.children.length; i++) {
+            for (var j = 0; j < this.maze.children[i].children.length; j++) {
+                var divElement = this.maze.children[i].children[j];
+                this.mazeArray[i][j] = divElement;
+                this.mazeArray[i][j].classList.remove("player")
+                this.mazeArray[i][j].classList.remove("revealedWall")
+                if (divElement.className === "start") {
+                    this.playerPosition = new Position(i, j);
+                    this.mazeArray[i][j].classList.add("player")
+                }
             }
         }
     }
+}
+
+Maze.prototype.startGame = function() {
+    this.gameStarted = true;
+    document.getElementById("mazeStartButton").remove()
 }

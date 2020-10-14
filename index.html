@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+        <!-- Icon -->
+        <link rel="icon" type="image/png" href="images/tabicon.png"/>
+        <!-- Styling -->
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
         <link rel="stylesheet" href="style/style.css">
         <link rel="stylesheet" href="style/homePage.css">
         <link
          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
         rel="stylesheet"
-    />
+        />
+
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,57 +21,160 @@
     
     <!-- Banner -->
     <nav id = "banner">
-        <div class = "banner-name">
-            <span class = "name"><a href="index.html">Terry Wong</a></span>
-            <hr class = "name-underline" />
+        <div class = "banner-logo">
+              <img src = "images/biglogowhiteCut.png"> 
         </div>
         <div class="banner-container">
             <ul class = "banner-links">
-              <li class="one"><a href="index.html">Home</a></li><!--
-           --><li class="two"><a href="pages/resume.html">Resume</a></li><!--
-           --><li class="three"><a href="pages/projects.html">Projects</a></li>
+              <li class="one text-content"><a href="index.html">Home</a></li><!--This comment is needed in order for li to display inline for some magical reason
+           --><li class="two text-content"><a href="pages/projects.html">Projects</a></li>
               <hr />
             </ul>
           </div>
     </nav>
     
     <!-- Welcome -->
-    <div class = "home-container">
-        <div class="home-profile">
-            <!--Profile Picture-->
-            <div class = "logo">
-                <img src="images/profile.jpg"/>
+    <div id = "home-profile" class = "fadeInRight">
+          <div class = "section">
+            <img id = "profile-pic" src="images/profile.jpg"/>
+            <div>
+              <h1 id = "name-main">Terry Wong</h1>
+              <div class = "subtitle">
+                <h2>Software Engineering Co-op<br>3rd Year @UofT
+                </h2>
+              </div>
             </div>
-            
-            <h1>Welcome to my Website!</h1>
+          </div>
 
-            <!--Contact links-->
-            <ul class="contact-icons">
-                <li class="contact-icon">
-                  <a href="https://github.com/TerryCLAWong">
-                    <i class="icon fab fa-github-square fa-3x"></i>
-                  </a>
-                </li>
+    </div>
 
-                <li class="contact-icon">
-                  <a href="https://www.linkedin.com/in/terry-wong-66692417a/">
-                    <i class="icon fab fa-linkedin fa-3x"></i>
-                  </a>
-                </li>
-
-                <li class="contact-icon">
-                  <a href = "mailto: anselm.wong@mail.utoronto.ca">
-                    <i class="icon fas fa-envelope-square fa-3x"></i>
-                  </a>
-                </li>
-            </ul>
-           
+    <!--About me-->
+    <div id = "about-me" class = "division fadeInRight deley animated">
+      <!--Title-->
+      <div class = "section-header">About Me</div>
+      <!--Content-->
+      <div" class = "section even-spacing">
+        
+        <div class = "subsection one-third">
+          <h2 class = "subtitle" >University Student</h2>
+          <p class = "text-content">
+            I'm a Computer Science student studying at the
+            University of Toronto Scarborough. Currently taking courses on Algorithm Design and Computational Mathematics.
         </div>
+       
+        <div class = "subsection one-third">
+          <h2 class = "subtitle">Software Developer</h2>
+          <p class = "text-content">I'm an aspiring full-stack developer but I am currently more interested in front-end UX. I plan to continue adding features to this website. In the meantime, please checkout some of my <a style = "color: darkorange" href = "pages/projects.html" class = "text-content">games!</a></p>  
+        </div>
+
+        <div class = "subsection one-third">
+          <h2 class = "subtitle">Home Cook</h2>
+          <p class = "text-content">When it comes time to eat, I love using creativity in the Kitchen! I always try to put an Asian twist on Western-style food and serve to friends/family whenenver I get the chance.</p>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+    <!--Skills-->
+    <div class = "division fadeInLeft deley animated">
+      <!--Title-->
+      <div class = "section-header">Here's what I can do</div>
+      <!--Content-->
+      <div class = "section even-spacing">
+        <div class = "subsection one-third">
+          <h2 class = "subtitle">Frameworks / Tools</h2>
+          <p class = "text-content">REST api, MVC, Git, Blue Jay, React, Node.js, Jira, Postman</p>
+        </div>
+       
+        <div class = "subsection one-third">
+          <h2 class = "subtitle">Databases</h2>
+          <p class = "text-content">MySQL, MongoDB, Neo4j</p>
+        </div>
+
+        <div class = "subsection one-third">
+          <h2 class = "subtitle">Languages</h2>
+          <p class = "text-content">Go, Java, JavaScript, Python, C, HTML/CSS</p>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!--Experience-->
+    <div class = "division fadeInRight deley animated">
+      <!--Title-->
+      <div class = "section-header">Experience</div>
+      <!--Content-->
+      <div class = "section even-spacing">
+        <div class = "subsection two-thirds">
+          <h2 class = "subtitle">University Health Network <br> Software Developer Co-op  (Winter - Summer 2020) </h2>
+
+          <ul class = "text-content exp-list">
+            <li>Developed several proprietary internal tools in Go to fix several thousands of data migration errors by analyzing sets of CSV, SQL, and JSON data </li>
+            <li>Responsible for Full Stack maintenance of the HCM clinic's Blue Jay-powered web-app by keeping up to date with issues on Gitlab</li>
+            <li>Designed and tested a Go program that recursively analyzed sets of large JSON files to create a CSV data dictionary to describe fields by their parent/child relationships, data types, and error types</li>
+          </ul>  
+        </div>
+        
+      </div>
+    </div>
+
+    <!--Contact-->
+    <div class = "division fadeInLeft deley animated">
+      <!--Title-->
+      <div class = "section-header">Stay in touch!</div>
+      <!--Content-->
+      <div class = "section even-spacing">
+
+        <div class = "subsection one-third">
+          <h2 class = "subtitle">GitHub</h2>
+          <span class = "text-content">https://github.com/TerryCLAWong</span>
+          <div class = "center">
+            <a class = "contact-icon" href="https://github.com/TerryCLAWong">
+              <i class="fab fa-github-square fa-3x"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class = "subsection one-third">
+          <h2 class = "subtitle">Email</h2>
+          <span class = "text-content">anselm.wong@mail.utoronto.ca</span>
+          <div class = "center">
+            <a class = "contact-icon" href="mailto: anselm.wong@mail.utoronto.ca">
+              <i class="fas fa-envelope-square fa-3x"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class = "subsection one-third">
+          <h2 class = "subtitle">Linkedin</h2>
+          <span class = "text-content">www.linkedin.com/in/terryclawong</span>
+          <div class = "center">
+            <a class = "contact-icon" href="www.linkedin.com/in/terryclawong">
+              <i class="fab fa-linkedin fa-3x"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--Footer-->
+    <div id = "footer">
+      <div class = "section">
+      <p class = "text-content" style= "margin-right: auto">
+        Made with ಠ_ಠ by Terry Wong
+      </p>
+
+      <p class = "text-content">
+        Hosted using GitHub Pages
+      </p>
+      </div>
     </div>
     
-
-    
-    
-
     </body>
 </html>

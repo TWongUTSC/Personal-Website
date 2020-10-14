@@ -1,65 +1,63 @@
 /*
-Profile
+Profile Main
 */
-
-div.home-container {
-    margin-top: 5%;
-    display: flex;
-    justify-content:center;
+#profile-pic {
+    margin-top: 25px;
+    margin-right:5%;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
 }
 
-div.home-profile {
-    flex-direction: column;
-    display:flex;
-    color: white;
+#home-profile {
+    margin-top: 15%;
+    opacity: 0;
 }
 
-div.home-profile h1 {
-    font-size: 3em;
+
+#name-main {
+    font-size: 90px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-div.logo {
-    text-align: center;
-    font-weight: bold;
-    display:flex;
-    align-items: center;
-    justify-content:center;
-}
-
-div.logo img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
-
 /*
-Contact Icons
+Profile Secondary
 */
 
-.contact-icons {
-    margin-top: 10px;
-    padding-inline-start: 0px;
-    padding-right: 23px;
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    font-size: 1.2rem;
-}
-  
-.contact-icon {
-    margin-left: 20px;
-    color: white;
+.subtitle {
+    color: darkorange
 }
 
-.icon {
-    height: 50px;
-    width: 50px;
+
+/*
+Contact
+*/
+
+.contact-icon {
+    justify-content: center;
+    font-size: 4rem; /*size of icon*/
     color: white;
     transition: color 0.2s ease-in-out 0s;
 }
 
-.icon:hover {
+.contact-icon i {
+    margin-top: 5%;
+}
+
+.contact-icon:hover {
     color: darkorange;
+}
+
+/*
+Experience
+*/
+
+.exp-list {
+    margin-left: 15px;
+    margin-top: 1%;
+}
+
+.exp-list li {
+    margin-top: 5px;
 }

@@ -1,4 +1,25 @@
+#mazeStartButton {
+    position: absolute;
+    z-index: 9;
+    height: 100%;
+    width: 100%;
+    color: white;
+    background: rgb(255,140,0, 0.1);
+    text-align: center;
+    transition: background 0.2s ease-in-out 0s;
+    margin-bottom: 0px;
+}
+
+#mazeStartButton:hover {
+    background: rgb(255,140,0, 0.2);
+}
+
+#mazeStartButton .center {
+    padding-top: 22%;
+}
+
 #mazeContainer {
+    z-index: 1;
     display: inline-block;
     position: relative;
     background: black;
@@ -6,7 +27,7 @@
 }
 
 #mazeBlock {
-    background-color: black;
+    position: relative;
 }
 
 #maze div {
@@ -15,24 +36,24 @@
 
 .border {
     background: black;
-    height : 20px;
-    width : 20px;
+    height : 18px;
+    width : 18px;
 
     border: 1px solid black;
 }
 
 .win {
     background-color: green;
-    height : 20px;
-    width : 20px;
+    height : 18px;
+    width : 18px;
 
     border: 1px solid green;
 }
 
 .wall {
 
-    height : 20px;
-    width : 20px;
+    height : 18px;
+    width : 18px;
 
     border: 1px solid rgb(20,20,20);
     transition: background 0.3s;
@@ -47,8 +68,8 @@
 }
 
 .path {
-    height : 20px;
-    width : 20px;
+    height : 18px;
+    width : 18px;
 
     border: 1px solid rgb(20,20,20);
 
@@ -60,16 +81,17 @@
 
 .start {
     background-color: purple;
-    height: 20px;
-    width : 20px;
+    height: 18px;
+    width : 18px;
 
     border: 1px solid purple;
 }
 
 .player {
     background: blue;
-    height: 20px;
-    width : 20px;
+    height: 18px;
+    width : 18px;
+
     border: 1px solid blue;
 }
 
@@ -78,36 +100,43 @@
 
 .contentBlock {
     display: flex;
-    margin-top: 30px;
-    margin-right: 50px;
-    margin-left: 50px;
+    margin: 2% 0%;
 }
 
-.content {
-    display: table-cell;
+#mazeInstructions {
+    padding: 35px;
+    padding-left: 50px;
+    color: white;
+    background-color: black;
+    border-radius: 0px 100px 100px 0px;
 }
 
 
 
 
+.buttonContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 .gameButton {
+    width: 100px;
     border-radius: 25px;
     background: grey;
     color: white;
     padding: 20px;
-    margin-right: 20px;
+ 
     text-decoration: none;
     font-weight:bold;
     outline: none;
     border:1px solid black;
-
     transition: background 0.2s ease-in-out 0s;
-    margin-bottom: 20px;
+    
+    
+    margin: 10px;
+    justify-content: space-evenly;
 }
 
 .gameButton:hover {
     background: darkorange;
 }
-
-.pressed { background: darkorange}
