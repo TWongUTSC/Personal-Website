@@ -70,8 +70,16 @@ General structure styling
     margin-bottom: 1%;
 }
 
-.subsection {
+.one-third {
     width: 31%;
+}
+
+.two-thirds {
+    width: 70%;
+}
+
+.one-half {
+    width: 45%;
 }
 
 .subsection h2 {

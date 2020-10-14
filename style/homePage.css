@@ -48,3 +48,16 @@ Contact
 .contact-icon:hover {
     color: darkorange;
 }
+
+/*
+Experience
+*/
+
+.exp-list {
+    margin-left: 15px;
+    margin-top: 1%;
+}
+
+.exp-list li {
+    margin-top: 5px;
+}
