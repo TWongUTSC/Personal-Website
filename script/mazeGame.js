@@ -93,13 +93,13 @@ Maze.prototype.movePlayer = function (movePosition)  {
 Maze.prototype.handleButton = function (e) {
     //Set desired position
     var movePosition = new Position(this.playerPosition.x, this.playerPosition.y);
-    if (e.key === "ArrowLeft") {
+    if (e.key === "a" || e.key === "A") {
         movePosition.y--;
-    } else if (e.key === "ArrowRight") {
+    } else if (e.key === "d" || e.key === "D") {
         movePosition.y++;
-    } else if (e.key === "ArrowUp") {
+    } else if (e.key === "w" || e.key === "W") {
         movePosition.x--;
-    } else if (e.key === "ArrowDown") {
+    } else if (e.key === "s" || e.key === "S") {
         movePosition.x++;
     }
 
