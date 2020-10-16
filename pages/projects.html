@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang = "en">
-    <head>
+    <head>        
+        <!-- Script -->
+        <script src="../lib/p5.js"></script>
+        <script src="../lib/jquery-3.5.1.min.js"></script>
+        <script src="../script/gridGame.js"></script>
+        <script src="../script/gridGameP5.js"></script>
+        
+
         <!-- Icon -->
         <link rel="icon" type="image/png" href="../images/tabicon.png"/>
 
@@ -17,18 +24,14 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
         rel="stylesheet"
         />
-
-        <!-- Script -->
-        <script src="../script/jquery-3.5.1.min.js"></script>
-        <script src="../script/gridGame.js"></script>
-
+        
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Projects</title>
     </head>
 
-<body onload="drawGrid()">
+<body>
 
     <!-- Banner -->
     <nav id = "banner">
@@ -44,874 +47,871 @@
         </div>
     </nav>
 
-<!-- Grid Game -->
-<div class = "division section fadeInRight animated">
+    <!-- Grid Game -->
+    <div class = "division section fadeInRight animated">
 
-    <!-- Grid Game container-->
-    <div id = "gridContainer" style = "background: white"> 
+        <!-- Grid Game container-->
+        <div id = "gridContainer" style = "background: white"> 
+            
+        </div>
+
+        <!-- Grid Game Instructions -->
+        <div class = "instructions text-content" >
+            <h1 class = "game-title"> Grid Game </h1>
+            <h1 style = "color: magenta">w.i.p, not functional</h1>
+            <ul>
+                <li> Fill up the grid! </li>
+                <li> Use arrow keys to fill a straight line </li>
+                <li> Inspired by a minigame in the point and click adventure: Machinarium</li>
+                <li> Test implementation completed and can be found <a style = "color: orange" href = "https://github.com/TerryCLAWong/gridGameTest" class = "text-content">here</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id = "sketch-div">
+
+    </div>
+
+    <!-- Maze Game -->
+    <div class = "division section animated fadeInLeft">
+        <!-- Maze Game container -->
         
-    </div>
-
-    <!-- Grid Game Instructions -->
-    <div class = "instructions text-content" >
-        <h1 class = "game-title"> Grid Game </h1>
-        <h1 style = "color: magenta">w.i.p, not functional</h1>
-        <ul>
-            <li> Fill up the grid! </li>
-            <li> Use arrow keys to fill a straight line </li>
-            <li> Inspired by a minigame in the point and click adventure: Machinarium</li>
-            <li> Test implementation completed and can be found <a style = "color: orange" href = "https://github.com/TerryCLAWong/gridGameTest" class = "text-content">here</a></li>
-        </ul>
-    </div>
-</div>
-
-<!-- Maze Game -->
-<div class = "division section animated fadeInLeft">
-    <!-- Maze Game container -->
-    
-    <div id = "mazeBlock">
-
-
-
-        <div id = "mazeContainer">
-            <div id = "mazeStartButton">
-                <div class = "center">
-                    <h2>
-                        Click here to start!
-                    </h2>
+        <div id = "mazeBlock">
+            <div id = "mazeContainer">
+                <div id = "mazeStartButton">
+                    <div class = "center">
+                        <h2>
+                            Click here to start!
+                        </h2>
+                        
+                    </div>
+                </div>
+                <div id = "maze">
+                    <div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                    </div> <!-- Borders here -->
                     
+                    <div>
+                        <div class = "border"> </div>
+                        <div class = "win"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "border"> </div>
+
+                    </div> <!-- Row 1 -->
+                    <div>
+                        <div class = "border"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "border"> </div>
+
+                    </div> <!-- Row 2 -->
+                    <div>
+                        <div class = "border"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "border"> </div>
+
+                    </div> <!-- Row 3 -->
+                    <div>
+                        <div class = "border"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "border"> </div>
+
+                    </div> <!-- Row 4 -->
+                    <div>
+                        <div class = "border"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "border"> </div>
+
+                    </div> <!-- Row 5 -->
+                    <div>
+                        <div class = "border"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "border"> </div>
+
+                    </div> <!-- Row 6 -->
+                    <div>
+                        <div class = "border"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "border"> </div>
+
+                    </div> <!-- Row 7 -->
+                    <div>
+                        <div class = "border"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "border"> </div>
+
+                    </div> <!-- Row 8 -->
+                    <div>
+                        <div class = "border"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "border"> </div>
+
+                    </div> <!-- Row 9 -->
+                    <div>
+                        <div class = "border"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "border"> </div>
+
+                    </div> <!-- Row 10 -->
+                    <div>
+                        <div class = "border"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "border"> </div>
+
+                    </div> <!-- Row 11 -->
+                    <div>
+                        <div class = "border"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "border"> </div>
+
+                    </div> <!-- Row 12 -->
+                    <div>
+                        <div class = "border"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "border"> </div>
+
+                    </div> <!-- Row 13 -->
+                    <div>
+                        <div class = "border"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "border"> </div>
+
+                    </div> <!-- Row 14 -->
+                    <div>
+                        <div class = "border"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "border"> </div>
+
+                    </div> <!-- Row 15 -->
+                    <div>
+                        <div class = "border"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "border"> </div>
+
+                    </div> <!-- Row 16 -->
+                    <div>
+                        <div class = "border"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "path"> </div>
+                        <div class = "wall"> </div>
+                        <div class = "path"> </div>
+                        <div class = "start"> </div>
+                        <div class = "border"> </div>
+
+                    </div> <!-- Row 17 -->
+                    <div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+                        <div class = "border"> </div>
+
+                    </div> <!-- Borders here -->
+                
+                
                 </div>
             </div>
-            <div id = "maze">
-                <div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                </div> <!-- Borders here -->
-                
-                <div>
-                    <div class = "border"> </div>
-                    <div class = "win"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "border"> </div>
+        </div>
 
-                </div> <!-- Row 1 -->
-                <div>
-                    <div class = "border"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "border"> </div>
-
-                </div> <!-- Row 2 -->
-                <div>
-                    <div class = "border"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "border"> </div>
-
-                </div> <!-- Row 3 -->
-                <div>
-                    <div class = "border"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "border"> </div>
-
-                </div> <!-- Row 4 -->
-                <div>
-                    <div class = "border"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "border"> </div>
-
-                </div> <!-- Row 5 -->
-                <div>
-                    <div class = "border"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "border"> </div>
-
-                </div> <!-- Row 6 -->
-                <div>
-                    <div class = "border"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "border"> </div>
-
-                </div> <!-- Row 7 -->
-                <div>
-                    <div class = "border"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "border"> </div>
-
-                </div> <!-- Row 8 -->
-                <div>
-                    <div class = "border"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "border"> </div>
-
-                </div> <!-- Row 9 -->
-                <div>
-                    <div class = "border"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "border"> </div>
-
-                </div> <!-- Row 10 -->
-                <div>
-                    <div class = "border"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "border"> </div>
-
-                </div> <!-- Row 11 -->
-                <div>
-                    <div class = "border"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "border"> </div>
-
-                </div> <!-- Row 12 -->
-                <div>
-                    <div class = "border"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "border"> </div>
-
-                </div> <!-- Row 13 -->
-                <div>
-                    <div class = "border"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "border"> </div>
-
-                </div> <!-- Row 14 -->
-                <div>
-                    <div class = "border"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "border"> </div>
-
-                </div> <!-- Row 15 -->
-                <div>
-                    <div class = "border"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "border"> </div>
-
-                </div> <!-- Row 16 -->
-                <div>
-                    <div class = "border"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "path"> </div>
-                    <div class = "wall"> </div>
-                    <div class = "path"> </div>
-                    <div class = "start"> </div>
-                    <div class = "border"> </div>
-
-                </div> <!-- Row 17 -->
-                <div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-                    <div class = "border"> </div>
-
-                </div> <!-- Borders here -->
+        <!-- Maze Game Instructions-->
+        <div class = "instructions text-content">
+            <h1 class = "game-title"> Blind Maze </h1>
             
-            
+            <ul style = "margin-left: 15px;">
+                <li> Find your way to the green square </li>
+                <li> Use arrow keys to move </li>
+                <li> Reveal the walls around as you move </li>
+                <li> Good luck! </li>
+            </ul>
+
+            <!--Game buttons-->
+            <div class = "buttonContainer"> 
+                <Button id = "restartButton" class = "gameButton">Restart</Button>
+                <Button id = "showhideButton" class = "gameButton">Show</Button>
             </div>
         </div>
+        
+
     </div>
 
-    <!-- Maze Game Instructions-->
-    <div class = "instructions text-content">
-        <h1 class = "game-title"> Blind Maze </h1>
-        
-        <ul style = "margin-left: 15px;">
-            <li> Find your way to the green square </li>
-            <li> Use arrow keys to move </li>
-            <li> Reveal the walls around as you move </li>
-            <li> Good luck! </li>
-        </ul>
-
-        <!--Game buttons-->
-        <div class = "buttonContainer"> 
-            <Button id = "restartButton" class = "gameButton">Restart</Button>
-            <Button id = "showhideButton" class = "gameButton">Show</Button>
+    <div id = "footer">
+        <div class = "section">
+            <p style= "margin-right: auto">
+            Made with ಠ_ಠ by Terry Wong
+            </p>
+            <p>
+            Hosted using Github Pages
+            </p>
         </div>
     </div>
-    
-
-</div>
-
-<div id = "footer">
-    <div class = "section">
-    <p style= "margin-right: auto">
-      Made with ಠ_ಠ by Terry Wong
-    </p>
-
-    <p>
-      Hosted using Github Pages
-    </p>
-    </div>
-
-  </div>
 
 
-<!-- Maze Game init -->
-<script src = "../script/mazeGame.js"></script>
-<script>
-    //Load Game
-    window.addEventListener("DOMContentLoaded", function(e) {
-        var maze = new Maze();
-    }, false)
-    //Disable scrolling
-        document.body.style.zoom = 1.0;
-</script>
+    <!-- Maze Game init -->
+    <script src = "../script/mazeGame.js"></script>
+    <script>
+        //Load Game
+        window.addEventListener("DOMContentLoaded", function(e) {
+            var maze = new Maze();
+        }, false)
+    </script>
 </body>
 </html>
