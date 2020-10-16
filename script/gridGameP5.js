@@ -18,8 +18,8 @@ function setup(){
     size = 500
     var canvas = createCanvas(size, size);
     canvas.parent('gridContainer');
-    frameRate(60);
-    
+    frameRate(24);
+
     //Get config containing level information
     config = getJSONObject("https://raw.githubusercontent.com/TerryCLAWong/Personal-Website/grid-game/gridGameConfig.json")
     
@@ -34,36 +34,28 @@ function setup(){
     //Won game
 }
 
-function playLevel(level) {
+function draw(){
+    //eventually remove, there should be a fill for each case
+    fill(color("white"))
 
-    currentGameState = new GameState(level.size,[],level.walls, [])
-    drawGrid(level.size, size)
-
-    
-
-    /*
-    init game state with a function
-    draw the screen
-    take valid input and set current
-    */
-   return true
-}
-
-function mousePressed() {
-    let cellSize = size/currentGameState.size
-    console.log(cellSize)
-    console.log(mouseX, mouseY)
-    let coordinate = [floor(mouseX/cellSize),floor(mouseY/cellSize)]
-    console.log(coordinate)
-}
-
-
-
-
-function drawGrid(cellCount, canvasSize) {
-    let cellSize = canvasSize/cellCount
+    cellSize = size/currentGameState.size
+    cellCount = currentGameState.size
     for (let row = 0 ; row < cellCount ; row++) {
         for (let col = 0 ; col < cellCount ; col++) {
+            rect(col*cellSize,row*cellSize,100,100)
+            if (currentGameState.current[0] == col && currentGameState.current[1] == row) {
+                //Draw player
+                fill(color("orange"))
+            } else if (currentGameState.hasCoordinate(currentGameState.filled, col, row)) {
+                //Draw wall
+                fill(color("black"))
+            } else if (currentGameState.hasCoordinate(currentGameState.available, col, row)) {
+                //Draw avail
+                fill(color("green"))
+            } else {
+                //Draw empty space
+                fill(color("white"))
+            }
             rect(col*cellSize,row*cellSize,100,100)
             /*
             TODO
@@ -73,7 +65,45 @@ function drawGrid(cellCount, canvasSize) {
             */
         }
     }
+
 }
+
+function playLevel(level) {
+
+    currentGameState = new GameState(level.size,[],level.walls,[])
+    
+
+
+    return true
+}
+
+function mousePressed() {
+    if (mouseX >= 0 && mouseX <= 500 && mouseY >= 0 && mouseY <= 500) {
+        let cellSize = size/currentGameState.size
+        console.log(cellSize)
+        console.log(mouseX, mouseY)
+        let coordinate = [floor(mouseX/cellSize),floor(mouseY/cellSize)]
+        console.log(coordinate)
+    
+        
+        
+        /*
+        if current is empty, set the current to be the pressed coordinate
+        */
+        console.log(typeof currentGameState.current)
+        if (currentGameState.current.length == 0) {
+            //Set current
+            currentGameState.current = coordinate
+        } else {
+            /*
+            Other cases for:
+            pressed on wall -> nothing?
+            pressed on avail -> do a bunch of shit
+            */
+        }
+    }    
+}
+
 
 
 /**
@@ -128,9 +158,6 @@ function getJSONObject(url) {
 
 
 
-function draw(){
-    ellipse(mouseX, mouseY, 25, 25);
-}
 
 function drawRect(){
     rect(100,200,50,60)
