@@ -9,10 +9,10 @@ I can use that to figure out whether or not the click was valid or not
 
 I can use modulo(cell size) to find out which cell was pressed
 
-
+For fading, use 
 */
 var size
-var currentGameState
+var gameLevel
 function setup(){
     //Init
     size = 500
@@ -34,71 +34,99 @@ function setup(){
     //Won game
 }
 
-function draw(){
-    //eventually remove, there should be a fill for each case
-    fill(color("white"))
+function samePosition(c1, c2) {
+    return (c1[0] == c2[0] && c1[1] == c2[1])
+}
 
-    cellSize = size/currentGameState.size
-    cellCount = currentGameState.size
-    for (let row = 0 ; row < cellCount ; row++) {
-        for (let col = 0 ; col < cellCount ; col++) {
-            rect(col*cellSize,row*cellSize,100,100)
-            if (currentGameState.current[0] == col && currentGameState.current[1] == row) {
-                //Draw player
-                fill(color("orange"))
-            } else if (currentGameState.hasCoordinate(currentGameState.filled, col, row)) {
-                //Draw wall
-                fill(color("black"))
-            } else if (currentGameState.hasCoordinate(currentGameState.available, col, row)) {
-                //Draw avail
-                fill(color("green"))
-            } else {
-                //Draw empty space
-                fill(color("white"))
-            }
-            rect(col*cellSize,row*cellSize,100,100)
-            /*
-            TODO
-            the game state is to be passed into this function so that
-            it can be checked if the current row/col is filled, avail, or current player
-            Depending on the result, a different render will occur
-            */
+function getRGBA(r,g,b,a) {
+    return "rgba(" + r.toString() + "," + g.toString() + "," +b.toString() + "," +a.toString() + ")"
+}
+
+function draw(){
+    cellSize = size/gameLevel.size
+
+    for (let index = 0 ; index < gameLevel.grid.length ; index++) {
+        let cell = gameLevel.grid[index]
+
+        
+        /*
+        check cell.position and see if its a player, wall, avail, none
+        */
+        if (samePosition(cell.position, gameLevel.current)) {
+            cell.alpha = cell.alpha + 0.04
+            fill(color(getRGBA(255,140,0,cell.alpha)))
+        } else if (gameLevel.hasCoordinate(gameLevel.filled, cell.position)) {
+            cell.alpha = cell.alpha + 0.04
+            fill(color(getRGBA(0,0,0,cell.alpha)))
+        } else {
+            cell.alpha = cell.alpha + 0.04
+            fill(color(getRGBA(255,255,255,cell.alpha)))
         }
+        rect(cell.position[0] * cellSize, cell.position[1] * cellSize ,cellSize, cellSize)
     }
 
+
+
+
+
+    /*
+    TODO
+    the game state is to be passed into this function so that
+    it can be checked if the current row/col is filled, avail, or current player
+    Depending on the result, a different render will occur
+    */
 }
 
 function playLevel(level) {
-
-    currentGameState = new GameState(level.size,[],level.walls,[])
+    //todo change filled cells into just coordinates
+    var filledCells = []
+    for (let index = 0 ; index < level.walls.length ; index++) {
+        filledCells.push(new Cell(level.walls[index], 0))
+    }
+    let grid = initGrid(level.size)
+ 
+    gameLevel = new GameState(grid,level.size,[],filledCells)
     
 
 
     return true
 }
 
+function initGrid(gridSize) {
+    var grid = []
+    for (let row = 0 ; row < gridSize ; row++) {
+        for (let col = 0 ; col < gridSize ; col++) {
+            grid.push(new Cell([col, row], 0))
+        }
+    }
+
+    return grid
+}
+
 function mousePressed() {
     if (mouseX >= 0 && mouseX <= 500 && mouseY >= 0 && mouseY <= 500) {
-        let cellSize = size/currentGameState.size
-        console.log(cellSize)
-        console.log(mouseX, mouseY)
+        let cellSize = size/gameLevel.size
         let coordinate = [floor(mouseX/cellSize),floor(mouseY/cellSize)]
-        console.log(coordinate)
+        console.log("Coordinate: " , coordinate)
     
-        
-        
-        /*
-        if current is empty, set the current to be the pressed coordinate
-        */
-        console.log(typeof currentGameState.current)
-        if (currentGameState.current.length == 0) {
+        if (gameLevel.current.length == 0) {
+            //todo check if first set position is wall
             //Set current
-            currentGameState.current = coordinate
+           
+            gameLevel.current = coordinate
         } else {
+            //TODO remove
+            gameLevel.setAlpha(gameLevel.current[0],gameLevel.current[1], 0)
+            gameLevel.current = coordinate
+            gameLevel.setAlpha(gameLevel.current[0],gameLevel.current[1], 0)
+
+
+
+
             /*
             Other cases for:
-            pressed on wall -> nothing?
             pressed on avail -> do a bunch of shit
+            else do fuckin' NOTHING or maybe flash red idk
             */
         }
     }    
@@ -108,27 +136,53 @@ function mousePressed() {
 
 /**
  * Stores the state of the game per level
+ * @param {[]int} size - The number of cells in a side of the square grid
  * @param {[]int} current - An array of integers of size 2 that contain the x and y position of player
- * @param {[][]int} filled - A 2d array of itegers that contain the x/y coordinates of filled in positions
- * @param {[][]int} available - A 2d array of itegers that contain the x/y coordinates of positions available to move to
+ * @param {[]Cell} filled - An array of cells that refer to the filled in cells
  */
-function GameState(size, current, filled, available) {
+function GameState(grid, size, current, filled) {
     //Fields
+    this.grid = grid
     this.size = size
     this.current = current
     this.filled = filled
-    this.available = available
-    //Assumption, filled and avail contain only arrays of size two of integers
-    this.hasCoordinate = function(array, x, y) {
+    
+    this.hasCoordinate = function(array, position) {
         for (let index = 0 ; index < array.length ; index++) {
-            let avail = array[index]
-            let search = [x,y]
-            if (avail[0] == search[0] && avail[1] == search[1]) {
+
+            let coordinate = array[index].position
+            if (samePosition(coordinate, position)) {
                 return true
             }
         }
         return false
     }
+    this.setAlpha = function(x, y, alpha) {
+        for (let index = 0 ; index < this.grid.length ; index++) {
+            let cell = this.grid[index]
+            let coordinate = cell.position
+            let search = [x,y]
+            if (samePosition(search, coordinate)) {
+                cell.alpha = alpha
+            }
+        }
+    }
+    this.getAlpha = function(array, x, y) {
+        for (let index = 0 ; index < array.length ; index++) {
+
+            let coordinate = array[index].position
+            
+            let search = [x,y]
+            if (coordinate[0] == search[0] && coordinate[1] == search[1]) {
+                return array[index].alpha
+            }
+        }
+    }
+}
+
+function Cell(position, alpha) {
+    this.position = position
+    this.alpha = 0
 }
 
 /**
