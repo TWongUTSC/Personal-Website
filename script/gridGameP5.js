@@ -38,9 +38,16 @@ function samePosition(c1, c2) {
     return (c1[0] == c2[0] && c1[1] == c2[1])
 }
 
+function nearPosition(c1, c2) {
+    return (samePosition([c1[0] + 1,c1[1]],c2)
+    ||samePosition([c1[0] - 1,c1[1]],c2)
+    ||samePosition([c1[0],c1[1] + 1],c2)
+    ||samePosition([c1[0],c1[1] - 1],c2))
+}
+
 function getRGBA(r,g,b,a) {
     return "rgba(" + r.toString() + "," + g.toString() + "," +b.toString() + "," +a.toString() + ")"
-}
+}   
 
 function draw(){
     cellSize = size/gameLevel.size
@@ -48,48 +55,41 @@ function draw(){
     for (let index = 0 ; index < gameLevel.grid.length ; index++) {
         let cell = gameLevel.grid[index]
 
-        
-        /*
-        check cell.position and see if its a player, wall, avail, none
-        */
         if (samePosition(cell.position, gameLevel.current)) {
-            cell.alpha = cell.alpha + 0.04
+            //Draw player position
+            //todo figure out why changing current elsewhere doesn't change it here
             fill(color(getRGBA(255,140,0,cell.alpha)))
-        } else if (gameLevel.hasCoordinate(gameLevel.filled, cell.position)) {
-            cell.alpha = cell.alpha + 0.04
+        } else if (gameLevel.isFilled(cell.position)) {
+            //Draw wall 
             fill(color(getRGBA(0,0,0,cell.alpha)))
+        } else if (gameLevel.current.length != 0 && nearPosition(gameLevel.current, cell.position)) {
+            //Draw available move
+            fill(color(getRGBA(0,150,0,cell.alpha)))
         } else {
-            cell.alpha = cell.alpha + 0.04
+            //Draw empty
             fill(color(getRGBA(255,255,255,cell.alpha)))
         }
+        cell.alpha = cell.alpha + 0.04
         rect(cell.position[0] * cellSize, cell.position[1] * cellSize ,cellSize, cellSize)
     }
-
-
-
-
-
-    /*
-    TODO
-    the game state is to be passed into this function so that
-    it can be checked if the current row/col is filled, avail, or current player
-    Depending on the result, a different render will occur
-    */
 }
 
 function playLevel(level) {
-    //todo change filled cells into just coordinates
-    var filledCells = []
-    for (let index = 0 ; index < level.walls.length ; index++) {
-        filledCells.push(new Cell(level.walls[index], 0))
-    }
+    var filledCells = level.walls
     let grid = initGrid(level.size)
- 
     gameLevel = new GameState(grid,level.size,[],filledCells)
     
+    /*
+    TODO: check end level req.
+    while (!(game.Level.gameOver || game.Level.gameWon)) {
+        if game.Level.gameOver
+            return false
+        else if game.Level.gameWon
+            return true
+    }
+    */
 
-
-    return true
+    return true 
 }
 
 function initGrid(gridSize) {
@@ -108,26 +108,18 @@ function mousePressed() {
         let cellSize = size/gameLevel.size
         let coordinate = [floor(mouseX/cellSize),floor(mouseY/cellSize)]
         console.log("Coordinate: " , coordinate)
-    
-        if (gameLevel.current.length == 0) {
-            //todo check if first set position is wall
-            //Set current
-           
-            gameLevel.current = coordinate
-        } else {
-            //TODO remove
-            gameLevel.setAlpha(gameLevel.current[0],gameLevel.current[1], 0)
-            gameLevel.current = coordinate
-            gameLevel.setAlpha(gameLevel.current[0],gameLevel.current[1], 0)
 
-
-
-
-            /*
-            Other cases for:
-            pressed on avail -> do a bunch of shit
-            else do fuckin' NOTHING or maybe flash red idk
-            */
+        if (!gameLevel.isFilled(coordinate)) {
+            if (gameLevel.current.length == 0) {
+                //Set first position
+                gameLevel.setAlpha(coordinate, 0)
+                gameLevel.current = coordinate
+            } else {
+                //Checking for pressing an available cell
+                if (nearPosition(gameLevel.current,coordinate)) {
+                    gameLevel.move(coordinate)
+                }
+            }
         }
     }    
 }
@@ -147,34 +139,74 @@ function GameState(grid, size, current, filled) {
     this.current = current
     this.filled = filled
     
-    this.hasCoordinate = function(array, position) {
-        for (let index = 0 ; index < array.length ; index++) {
-
-            let coordinate = array[index].position
+    this.isFilled = function(position) {
+        for (let index = 0 ; index < this.filled.length ; index++) {
+            let coordinate = this.filled[index]
             if (samePosition(coordinate, position)) {
                 return true
             }
         }
         return false
     }
-    this.setAlpha = function(x, y, alpha) {
+    this.fill = function(filled) {
+        this.filled.push(filled)
+    }
+    this.setCurrent = function(newPosition) {
+        this.current = newPosition
+    }
+    this.setAlpha = function(position, alpha) {
         for (let index = 0 ; index < this.grid.length ; index++) {
             let cell = this.grid[index]
             let coordinate = cell.position
-            let search = [x,y]
-            if (samePosition(search, coordinate)) {
+            if (samePosition(position, coordinate)) {
                 cell.alpha = alpha
             }
         }
     }
-    this.getAlpha = function(array, x, y) {
-        for (let index = 0 ; index < array.length ; index++) {
-
-            let coordinate = array[index].position
-            
-            let search = [x,y]
-            if (coordinate[0] == search[0] && coordinate[1] == search[1]) {
-                return array[index].alpha
+    this.move = function(coordinate) {
+        if (samePosition(coordinate, [gameLevel.current[0] + 1, gameLevel.current[1]])) {
+            console.log("right")
+            for (x = gameLevel.current[0] ; x < gameLevel.size ; x++) {
+                position = [x,gameLevel.current[1]]
+                gameLevel.setAlpha(position, 0)
+                if (x + 1 == gameLevel.size || gameLevel.isFilled([x+1, gameLevel.current[1]])) {
+                    gameLevel.setCurrent(position)
+                    break
+                }
+                gameLevel.fill(position)
+            }
+        } else if (samePosition(coordinate, [gameLevel.current[0] - 1, gameLevel.current[1]])) {
+            console.log("left")
+            for (x = gameLevel.current[0] ; x > -1 ; x--) {
+                position = [x,gameLevel.current[1]]
+                gameLevel.setAlpha(position, 0)
+                if (x  == 0 || gameLevel.isFilled([x-1, gameLevel.current[1]])) {
+                    gameLevel.setCurrent(position)
+                    break
+                }
+                gameLevel.fill(position)
+            }
+        } else if (samePosition(coordinate, [gameLevel.current[0], gameLevel.current[1] + 1])) {
+            console.log("down")
+            for (y = gameLevel.current[1] ; y < gameLevel.size ; y++) {
+                position = [gameLevel.current[0], y]
+                gameLevel.setAlpha(position, 0)
+                if (y + 1 == gameLevel.size || gameLevel.isFilled([gameLevel.current[0], y + 1])) {
+                    gameLevel.setCurrent(position)
+                    break
+                }
+                gameLevel.fill(position)
+            }
+        } else if (samePosition(coordinate, [gameLevel.current[0], gameLevel.current[1] - 1])) {
+            console.log("up")
+            for (y = gameLevel.current[1] ; y > -1 ; y--) {
+                position = [gameLevel.current[0], y]
+                gameLevel.setAlpha(position, 0)
+                if (y == 0 || gameLevel.isFilled([gameLevel.current[0], y - 1])) {
+                    gameLevel.setCurrent(position)
+                    break
+                }
+                gameLevel.fill(position)
             }
         }
     }
@@ -201,18 +233,4 @@ function getJSONObject(url) {
       },
     });
     return jsonObject
-}
-
-
-
-
-
-
-
-
-
-
-
-function drawRect(){
-    rect(100,200,50,60)
 }
