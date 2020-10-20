@@ -32,6 +32,8 @@ function setup(){
     textFont('Montserrat');
     textSize(50)
     textAlign(CENTER)
+
+    strokeWeight(0);
 }
 
 function samePosition(c1, c2) {
@@ -129,7 +131,7 @@ function renderGrid() {
             fill(color(getRGBA(255,140,0,cell.alpha)))
         } else if (gameLevel.isFilled(cell.position)) {
             //Draw wall 
-            fill(color(getRGBA(0,0,0,cell.alpha)))
+            fill(color(getRGBA(15,15,17,cell.alpha)))
         } else if (gameLevel.current.length != 0 && nearPosition(gameLevel.current, cell.position)) {
             //Draw available moves  
             fill(color(getRGBA(120,255,120,cell.alpha)))
@@ -140,7 +142,8 @@ function renderGrid() {
         cell.alpha = cell.alpha + 0.04 //Iterating alpha for fading in
 
         //Render cell
-        rect(cell.position[0] * cellSize, cell.position[1] * cellSize ,cellSize, cellSize)    }
+        rect(cell.position[0] * cellSize, cell.position[1] * cellSize ,cellSize, cellSize)    
+    }
 }
 
 function playLevel(level) {
