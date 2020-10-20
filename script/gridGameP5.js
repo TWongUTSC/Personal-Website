@@ -4,7 +4,8 @@ var levels //array of all levels in the game
 var currentLevel //index of current level being played
 
 //Booleans, self explainatory
-var levelStarted 
+var levelStarted
+var firstSet 
 var gameStarted
 var gameFinished
 
@@ -24,6 +25,7 @@ function setup(){
     levelStarted = false
     gameStarted = false
     gameFinished = false
+    firstSet = false
 
     //Init Text
     textStyle(BOLD)
@@ -91,12 +93,28 @@ function draw(){
         } else {
             renderLevelWon()
         }
+        firstSet = false
     } else if (gameLevel.stuck) {
         //Rendering lose condition
         renderLevelLost()
+        firstSet = false
     } else {
         //Rendering normal gameplay
         renderGrid()
+
+        //Render hovered square
+        if (!firstSet) {
+            renderHover()
+        }
+    }
+}
+
+function renderHover() {
+    let cellSize = size/gameLevel.size
+    let coordinate = [floor(mouseX/cellSize),floor(mouseY/cellSize)]
+    if (!gameLevel.isFilled(coordinate)) {
+        fill(color("orange"))
+        rect(coordinate[0] * cellSize, coordinate[1] * cellSize ,cellSize, cellSize)
     }
 }
 
@@ -122,14 +140,14 @@ function renderGrid() {
         cell.alpha = cell.alpha + 0.04 //Iterating alpha for fading in
 
         //Render cell
-        rect(cell.position[0] * cellSize, cell.position[1] * cellSize ,cellSize, cellSize)
-    }
+        rect(cell.position[0] * cellSize, cell.position[1] * cellSize ,cellSize, cellSize)    }
 }
 
 function playLevel(level) {
     var filledCells = Array.from(level.walls) //Copying array in js is by reference, use Array.from instead
     let grid = initGrid(level.size)
     gameLevel = new GameState(grid,level.size,[],filledCells, false, false)
+    firstSet = false
 }
 
 function initGrid(gridSize) {
@@ -144,10 +162,12 @@ function initGrid(gridSize) {
 
 function mousePressed() {
     //Clicking within screen
-    if (mouseX >= 0 && mouseX <= 500 && mouseY >= 0 && mouseY <= 500) {
+    if (mouseX >= 0 && mouseX <= size && mouseY >= 0 && mouseY <= size) {
         if (mouseButton === RIGHT) {
             //Restart level
-            playLevel(levels[currentLevel])
+            if (firstSet) {
+                playLevel(levels[currentLevel])
+            }
         } else if (mouseButton == LEFT) {
             if (!gameStarted) {
                 //Start game
@@ -179,6 +199,7 @@ function mousePressed() {
                         //Set first position
                         gameLevel.setAlpha(coordinate, 0)
                         gameLevel.current = coordinate
+                        firstSet = true
                     } else {
                         //Checking for pressing an available cell
                         if (nearPosition(gameLevel.current,coordinate)) {
@@ -190,17 +211,6 @@ function mousePressed() {
         }
     }    
 }
-
-
-//TODO update documentation for params
-/**
- * Stores the state of the game per level
- * @param {[]int} size - The number of cells in a side of the square grid
- * @param {[]int} current - An array of integers of size 2 that contain the x and y position of player
- * @param {[]Cell} filled - An array of cells that refer to the filled in cells
- */
-
-
 
 /**
  * 
