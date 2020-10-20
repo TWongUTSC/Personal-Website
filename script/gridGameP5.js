@@ -93,9 +93,11 @@ function draw(){
         } else {
             renderLevelWon()
         }
+        firstSet = false
     } else if (gameLevel.stuck) {
         //Rendering lose condition
         renderLevelLost()
+        firstSet = false
     } else {
         //Rendering normal gameplay
         renderGrid()
@@ -163,7 +165,9 @@ function mousePressed() {
     if (mouseX >= 0 && mouseX <= size && mouseY >= 0 && mouseY <= size) {
         if (mouseButton === RIGHT) {
             //Restart level
-            playLevel(levels[currentLevel])
+            if (firstSet) {
+                playLevel(levels[currentLevel])
+            }
         } else if (mouseButton == LEFT) {
             if (!gameStarted) {
                 //Start game
