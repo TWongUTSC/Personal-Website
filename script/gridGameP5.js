@@ -17,7 +17,7 @@ function setup(){
     frameRate(24);
 
     //Get config containing level information
-    config = getJSONObject("https://raw.githubusercontent.com/TerryCLAWong/Personal-Website/grid-game/gridGameConfig.json")
+    config = getJSONObject("https://raw.githubusercontent.com/TerryCLAWong/Personal-Website/master/gridGameConfig.json")
     levels = config.levels
 
     //Init variables
