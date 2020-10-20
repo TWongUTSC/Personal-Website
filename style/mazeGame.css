@@ -55,8 +55,9 @@
     height : 18px;
     width : 18px;
 
-    border: 1px solid rgb(10,10,10);
+    border: 1px solid rgb(20,20,20);
     transition: background 0.3s;
+    
 
 }
 
@@ -70,7 +71,7 @@
     height : 18px;
     width : 18px;
 
-    border: 1px solid rgb(10,10,10);
+    border: 1px solid rgb(20,20,20);
 
 }
 
@@ -87,13 +88,11 @@
 }
 
 .player {
-
     background: blue;
     height: 18px;
     width : 18px;
 
     border: 1px solid blue;
-    
 }
 
 
@@ -113,9 +112,7 @@
 }
 
 
-#banner p {
-    margin-bottom : 0px;
-}
+
 
 .buttonContainer {
     display: flex;
