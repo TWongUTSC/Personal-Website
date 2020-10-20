@@ -13,6 +13,11 @@ For fading, use
 */
 var size
 var gameLevel
+var levels
+var currentLevel
+var levelStarted
+var gameStarted
+var gameFinished
 function setup(){
     //Init
     size = 500
@@ -22,16 +27,17 @@ function setup(){
 
     //Get config containing level information
     config = getJSONObject("https://raw.githubusercontent.com/TerryCLAWong/Personal-Website/grid-game/gridGameConfig.json")
-    
-    //Play levels
-    for (let index = 0 ; index < config.levels.length ; index++) {
-        let level = config.levels[index]
-        while (!playLevel(level)) {
-            //Lost level, try again
-        }
-        //Won level, moving on
-    }
-    //Won game
+    levels = config.levels
+    currentLevel = 0
+    levelStarted = false
+    gameStarted = false
+    gameFinished = false
+
+    //Text init
+    textStyle(BOLD)
+    textFont('Montserrat');
+    textSize(50)
+    textAlign(CENTER)
 }
 
 function samePosition(c1, c2) {
@@ -47,11 +53,79 @@ function nearPosition(c1, c2) {
 
 function getRGBA(r,g,b,a) {
     return "rgba(" + r.toString() + "," + g.toString() + "," +b.toString() + "," +a.toString() + ")"
-}   
+}
+
+function renderStartScreen() {
+    fill(15,15,17)
+    text("Click to Start!",250,250)
+}
+
+function renderLevelLost() {
+    fill(255,255,255)
+    background(color("rgba(0,0,0,0.8)"))
+    text("Try again!",250,240)
+    text("Click to continue",250,290)
+    noLoop()
+}
+
+function renderLevelWon() {
+    fill(255,255,255)
+    background(color("rgba(0,0,0,0.8)"))
+    text("Good Job!",250,240)
+    text("Click to continue",250,290)
+    noLoop()
+}
+
+function renderGameFinished() {
+    fill(255,255,255)
+    background(color("rgba(0,0,0,0.8)"))
+    text("You Win!",250,240)
+    text("Click to restart",250,290)
+    noLoop()
+}
 
 function draw(){
-    cellSize = size/gameLevel.size
+    if (!gameStarted) {
+        /*
+        Setup inits game started as false
+        When false, only render the start screen
+        When mouse is pressed, the game starts 
+        */
+        renderStartScreen()
+    } else if (!levelStarted) {
+        /*
+        Set up inits this as false
+        When false, that means that the level has no started yet
+        When the game has started but the level hasn't, the level starts
+        Value set to true and the gameLevel is initialized
+        */
+        playLevel(levels[currentLevel])
+        console.log("Started level:", currentLevel)
+        
+        levelStarted = true
+    } else if (gameLevel.won) { //TODO replace levelLost with field within GameState
+        console.log("current level is" , currentLevel)
+        
+        if (currentLevel == levels.length - 1) {
+            gameFinished = true
+            renderGameFinished()
+        } else {
+            renderLevelWon()
+        }
+    } else if (gameLevel.stuck) {
+        renderLevelLost()
+    } else {
+        //Draw only when not stuck
+        renderGrid()
+    }
+    
+    
+    
+}
 
+function renderGrid() {
+
+    cellSize = size/gameLevel.size
     for (let index = 0 ; index < gameLevel.grid.length ; index++) {
         let cell = gameLevel.grid[index]
 
@@ -63,8 +137,8 @@ function draw(){
             //Draw wall 
             fill(color(getRGBA(0,0,0,cell.alpha)))
         } else if (gameLevel.current.length != 0 && nearPosition(gameLevel.current, cell.position)) {
-            //Draw available move
-            fill(color(getRGBA(0,150,0,cell.alpha)))
+            //Draw available moves  
+            fill(color(getRGBA(120,255,120,cell.alpha)))
         } else {
             //Draw empty
             fill(color(getRGBA(255,255,255,cell.alpha)))
@@ -75,21 +149,9 @@ function draw(){
 }
 
 function playLevel(level) {
-    var filledCells = level.walls
+    var filledCells = Array.from(level.walls) //Copying array in js is by reference
     let grid = initGrid(level.size)
-    gameLevel = new GameState(grid,level.size,[],filledCells)
-    
-    /*
-    TODO: check end level req.
-    while (!(game.Level.gameOver || game.Level.gameWon)) {
-        if game.Level.gameOver
-            return false
-        else if game.Level.gameWon
-            return true
-    }
-    */
-
-    return true 
+    gameLevel = new GameState(grid,level.size,[],filledCells, false, false)
 }
 
 function initGrid(gridSize) {
@@ -104,40 +166,73 @@ function initGrid(gridSize) {
 }
 
 function mousePressed() {
+    //Clicking within screen
     if (mouseX >= 0 && mouseX <= 500 && mouseY >= 0 && mouseY <= 500) {
-        let cellSize = size/gameLevel.size
-        let coordinate = [floor(mouseX/cellSize),floor(mouseY/cellSize)]
-        console.log("Coordinate: " , coordinate)
-
-        if (!gameLevel.isFilled(coordinate)) {
-            if (gameLevel.current.length == 0) {
-                //Set first position
-                gameLevel.setAlpha(coordinate, 0)
-                gameLevel.current = coordinate
+        if (mouseButton === RIGHT) {
+            //Restart level
+            playLevel(levels[currentLevel])
+        } else if (mouseButton == LEFT) {
+            if (!gameStarted) {
+                //Start game
+                gameStarted = true
+            } else if (gameLevel.won) {
+                //Level won
+                if (currentLevel < levels.length - 1) {
+                    //Iterate current level
+                    currentLevel ++
+                    levelStarted = false
+                } else {
+                    //Restart game
+                    currentLevel = 0
+                    levelStarted = false
+                    gameFinished = true
+                }
+                loop()
+            } else if (gameLevel.stuck) {
+                //Level lost
+                levelLost = false
+                levelStarted = false
+                loop()
             } else {
-                //Checking for pressing an available cell
-                if (nearPosition(gameLevel.current,coordinate)) {
-                    gameLevel.move(coordinate)
+                //Perform game action
+                let cellSize = size/gameLevel.size
+                let coordinate = [floor(mouseX/cellSize),floor(mouseY/cellSize)]
+                //Only 
+                if (!gameLevel.isFilled(coordinate)) {
+                    if (gameLevel.current.length == 0) {
+                        //Set first position
+                        gameLevel.setAlpha(coordinate, 0)
+                        gameLevel.current = coordinate
+                    } else {
+                        //Checking for pressing an available cell
+                        if (nearPosition(gameLevel.current,coordinate)) {
+                            gameLevel.move(coordinate)
+                        }
+                    }
                 }
             }
         }
+
+
     }    
 }
 
 
-
+//TODO update documentation for params
 /**
  * Stores the state of the game per level
  * @param {[]int} size - The number of cells in a side of the square grid
  * @param {[]int} current - An array of integers of size 2 that contain the x and y position of player
  * @param {[]Cell} filled - An array of cells that refer to the filled in cells
  */
-function GameState(grid, size, current, filled) {
+function GameState(grid, size, current, filled, won, stuck) {
     //Fields
     this.grid = grid
     this.size = size
     this.current = current
     this.filled = filled
+    this.won = won
+    this.stuck = stuck
     
     this.isFilled = function(position) {
         for (let index = 0 ; index < this.filled.length ; index++) {
@@ -151,6 +246,25 @@ function GameState(grid, size, current, filled) {
     this.fill = function(filled) {
         this.filled.push(filled)
     }
+    this.checkWon = function() {
+       this.won = (this.filled.length == this.size * this.size - 1)
+    }
+    this.checkStuck = function() {
+        this.stuck = (
+            //Check if the next cell is either filled or out of bounds
+            //Right
+            (this.isFilled([this.current[0] + 1, this.current[1]]) || this.current[0] + 1 == this.size)
+            &&
+            //Left
+            (this.isFilled([this.current[0] - 1, this.current[1]]) || this.current[0] == 0)
+            &&
+            //Down
+            (this.isFilled([this.current[0], this.current[1] + 1]) || this.current[1] + 1 == this.size)
+            &&
+            //Up
+            (this.isFilled([this.current[0], this.current[1] - 1]) || this.current[1] == 0)
+        )
+    } 
     this.setCurrent = function(newPosition) {
         this.current = newPosition
     }
@@ -165,7 +279,12 @@ function GameState(grid, size, current, filled) {
     }
     this.move = function(coordinate) {
         if (samePosition(coordinate, [gameLevel.current[0] + 1, gameLevel.current[1]])) {
-            console.log("right")
+            //Moving right
+            /*
+            Checking all cells right of the current position
+            If the next cell is out of bounds or filled, stop and place current
+            Else fill the cell
+            */
             for (x = gameLevel.current[0] ; x < gameLevel.size ; x++) {
                 position = [x,gameLevel.current[1]]
                 gameLevel.setAlpha(position, 0)
@@ -176,7 +295,7 @@ function GameState(grid, size, current, filled) {
                 gameLevel.fill(position)
             }
         } else if (samePosition(coordinate, [gameLevel.current[0] - 1, gameLevel.current[1]])) {
-            console.log("left")
+            //Moving left
             for (x = gameLevel.current[0] ; x > -1 ; x--) {
                 position = [x,gameLevel.current[1]]
                 gameLevel.setAlpha(position, 0)
@@ -187,7 +306,7 @@ function GameState(grid, size, current, filled) {
                 gameLevel.fill(position)
             }
         } else if (samePosition(coordinate, [gameLevel.current[0], gameLevel.current[1] + 1])) {
-            console.log("down")
+            //Moving down
             for (y = gameLevel.current[1] ; y < gameLevel.size ; y++) {
                 position = [gameLevel.current[0], y]
                 gameLevel.setAlpha(position, 0)
@@ -198,7 +317,7 @@ function GameState(grid, size, current, filled) {
                 gameLevel.fill(position)
             }
         } else if (samePosition(coordinate, [gameLevel.current[0], gameLevel.current[1] - 1])) {
-            console.log("up")
+            //Moving up
             for (y = gameLevel.current[1] ; y > -1 ; y--) {
                 position = [gameLevel.current[0], y]
                 gameLevel.setAlpha(position, 0)
@@ -209,6 +328,11 @@ function GameState(grid, size, current, filled) {
                 gameLevel.fill(position)
             }
         }
+
+        
+        //TODO remove testing print
+        this.checkStuck()
+        this.checkWon()
     }
 }
 
@@ -234,3 +358,8 @@ function getJSONObject(url) {
     });
     return jsonObject
 }
+
+/*
+FEATURES TO ADD
+right click or press R to restart
+*/
