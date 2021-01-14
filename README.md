@@ -5,7 +5,7 @@
 This website serves as somewhat of a portfolio for myself and is also a place for me to experiment with web design/development, and game development.
 
 ## Stack
-This website was made with straight-forward HTML, CSS, and Javascript and is hosted using Github pages. All of the visual components were created by me.
+This website was made with straight-forward HTML, CSS, and Javascript and is hosted using Github pages. All of the css components were created by me.
 
 ## Games
 * Grid Game
