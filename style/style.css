@@ -109,6 +109,18 @@ General structure styling
     text-align: center;
 }
 
+hr.section-divider { 
+    height: .25rem;
+    border: none;
+    background-color: darkorange;
+    margin-right: 100%;
+    transition: .5s ease-in-out;
+}
+
+.division:hover hr {
+    margin-right: 0%;
+}
+
 
 /*
 Scrollbar
@@ -153,13 +165,6 @@ Banner
     height: 50px;
 }
 
-hr.name-underline {
-    margin-top: 12px;
-    height: .25rem;
-    width: 100%;
-    background: darkorange;
-    border: none;
-}
 
 .banner-container {
     width: 30%;
@@ -199,7 +204,7 @@ ul.banner-links li a {
     margin: 0;
 }
 
-hr {
+hr.banner {
     height: .25rem;
     width: 50%;
     margin: 0%;
