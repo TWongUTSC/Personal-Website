@@ -183,10 +183,6 @@ nav {
     margin-left: 50%;
 }
 
-hr.second { /*Starting margin*/
-    margin-left: 50%;
-}
-
 ul.banner-links {
     padding-inline-start: 0px;
     margin-top: 0px;
@@ -207,10 +203,17 @@ ul.banner-links li a {
 hr.banner {
     height: .25rem;
     width: 50%;
-    margin: 0%;
     background: darkorange;
     border: none;
     transition: .3s ease-in-out;
+}
+
+hr.first { /*Starting margin*/
+    margin-left: 0%;
+}
+
+hr.second { /*Starting margin*/
+    margin-left: 50%;
 }
 
 /*
