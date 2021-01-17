@@ -6,30 +6,20 @@ html {
     height: 100%;
 }
 
-body { 
-    max-width: 70rem;
-    
-    margin-right: auto;
-    margin-left: auto;
+body {
+
     margin-bottom: 0px;
     margin-top: 0px;
-    
-    
-
-
+    /*Limits the width of the page*/
+    max-width: 70rem;
+    margin-right: auto;
+    margin-left: auto;
+    /*Font*/
     font-family: "Montserrat";
     /*Scrollbar always visible to prevent sudden element shift*/
     overflow-y: scroll;
-    /*background-image: url("../images/view-cropped-large.jpg");*/
-    /*background: linear-gradient(rgb(50,50,50) , rgb(90,90,90));*/
+    /*Color*/
     background: rgb(15,15,17);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-    /* what is the third parameter?
-    animation: fadeIn 0.5s ease;
-    */
 }
 
 a {
@@ -45,6 +35,7 @@ a:hover {
 ul {
     padding-left: 4%;
 }
+
 
 /*
 General structure styling
@@ -63,15 +54,19 @@ General structure styling
     color: white;
     flex-wrap: wrap;
     display: flex;
+    justify-content: space-around;
+    margin-left: 1%;
 }
 
 .section-header {
     font-size: 40px;
     margin-bottom: 1%;
+    margin-left: 20px;
 }
 
 .one-third {
     width: 31%;
+    min-width: 22rem;
 }
 
 .two-thirds {
@@ -115,6 +110,7 @@ hr.section-divider {
     background-color: darkorange;
     margin-right: 100%;
     transition: .5s ease-in-out;
+    margin-left: 1%;
 }
 
 .division:hover hr {
@@ -167,7 +163,9 @@ Banner
 
 
 .banner-container {
-    width: 30%;
+    width: 40%;
+    min-width: 200px;
+    margin-right: 5%;
 }
 
 nav {

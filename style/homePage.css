@@ -3,7 +3,6 @@ Profile Main
 */
 #profile-pic {
     margin-top: 25px;
-    margin-right:5%;
     width: 170px;
     height: 170px;
     border-radius: 50%;
@@ -19,6 +18,11 @@ Profile Main
     font-size: 90px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+#titleContainer { 
+    margin-right: auto;
+    margin-left: 5%;
 }
 
 /*
@@ -60,4 +64,8 @@ Experience
 
 .exp-list li {
     margin-top: 5px;
+}
+
+#experienceContent {
+    margin-left: 1%;
 }
