@@ -11,3 +11,12 @@
     color: darkorange;
     margin-top: 0px;
 }
+
+#malFiguresLink :hover {
+    opacity: 0.5;
+    transition: 0.7s;
+}
+
+#malFiguresImg {
+    width: 500px;
+}
