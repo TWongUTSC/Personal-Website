@@ -8,10 +8,12 @@ var levelStarted
 var firstSet 
 var gameStarted
 var gameFinished
+var size
 
 function setup(){
     //Init canvas
     size = 500
+    if (screen.width < 600) {size = 350}
     var canvas = createCanvas(size, size);
     canvas.parent('gridContainer');
     frameRate(24);
@@ -31,6 +33,7 @@ function setup(){
     textStyle(BOLD)
     textFont('Montserrat');
     textSize(50)
+    if (screen.width < 600) {textSize(35)}
     textAlign(CENTER)
 
     strokeWeight(0);
@@ -53,30 +56,30 @@ function getRGBA(r,g,b,a) {
 
 function renderStartScreen() {
     fill(15,15,17)
-    text("Click to Start!",250,250)
+    text("Click to Start!",size/2,size/2)
 }
 
 function renderLevelLost() {
     fill(255,255,255)
     background(color("rgba(0,0,0,0.8)"))
-    text("Try again!",250,240)
-    text("Click to continue",250,290)
+    text("Try again!",size/2,size/2 - 20)
+    text("Click to continue",size/2,size/2 + 25)
     noLoop()
 }
 
 function renderLevelWon() {
     fill(255,255,255)
     background(color("rgba(0,0,0,0.8)"))
-    text("Good Job!",250,240)
-    text("Click to continue",250,290)
+    text("Good Job!",size/2,size/2 - 30)
+    text("Click to continue",size/2,size/2 + 20)
     noLoop()
 }
 
 function renderGameFinished() {
     fill(255,255,255)
     background(color("rgba(0,0,0,0.8)"))
-    text("You Win!",250,240)
-    text("Click to restart",250,290)
+    text("You Win!",size/2,size/2 - 30)
+    text("Click to restart",size/2, size/2 + 20)
     noLoop()
 }
 

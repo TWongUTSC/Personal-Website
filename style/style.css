@@ -58,6 +58,10 @@ General structure styling
     margin-left: 1%;
 }
 
+.between {
+    justify-content: space-between;
+}
+
 .section-header {
     font-size: 40px;
     margin-bottom: 1%;
@@ -70,11 +74,20 @@ General structure styling
 }
 
 .two-thirds {
-    width: 70%;
+    width: 68%;
 }
 
 .one-half {
     width: 45%;
+    min-width: 22rem;
+}
+
+.three-fifths {
+    width: 60%
+}
+
+.one-fourth {
+    width: 27%
 }
 
 .subsection h2 {
@@ -269,3 +282,16 @@ Animations
         opacity: 1
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .section-header {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5%;
+    }
+
+    #experienceContent .subtitle {
+        margin-left: 3%;
+    }
+}
+

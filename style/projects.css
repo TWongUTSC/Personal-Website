@@ -1,9 +1,5 @@
 .instructions {
-    margin-left: 3%;
     color: white;
-
-    flex: 1;
-    border-radius: 0px 100px 100px 0px;
     
 }
 
@@ -12,11 +8,43 @@
     margin-top: 0px;
 }
 
+.project-subtitle {
+    color: teal;
+}
+
 #malFiguresLink :hover {
     opacity: 0.5;
     transition: 0.7s;
 }
 
 #malFiguresImg {
-    width: 500px;
+    width: 100%;
 }
+
+#pixelJumpVideo {
+    height: 100%
+}
+
+@media only screen and (max-width: 600px) {
+    .between {
+        justify-content: center;
+    }
+
+    .three-fifths {
+        width: 85%
+    }
+
+    .one-fourth {
+        width: 31%;
+        min-width: 22rem;
+    }
+
+    #mazeBlock {
+        margin-top: 10%;
+    }
+
+    .project-header {
+        text-align: center;
+    }
+    
+  }
